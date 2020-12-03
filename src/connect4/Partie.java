@@ -1,5 +1,7 @@
 package connect4;
 
+import observateur.Sujet;
+
 public class Partie extends Sujet {
 
     private final Joueur[] joueurs;
@@ -11,9 +13,11 @@ public class Partie extends Sujet {
 
     public Partie(String nomJoueur1, String nomJoueur2, int nbManches) {
         joueurs = new Joueur[2];
-        joueurs[0] = new Joueur(nomJoueur1);
-        joueurs[1] = new Joueur(nomJoueur2);
+        joueurs[0] = new Joueur(nomJoueur1, Couleur.JAUNE);
+        joueurs[1] = new Joueur(nomJoueur2, Couleur.ROUGE);
         indiceJoueurCourant = 0;
+
+        grille = new Grille(Regles.LARGEUR, Regles.HAUTEUR);
 
         this.nbManches = nbManches;
         manche = 0;
@@ -23,9 +27,10 @@ public class Partie extends Sujet {
     public void jouer(Joueur j, int rangee) {
         // Si le coup est valide
         if (j == joueurs[indiceJoueurCourant] && verifierRangee(rangee)) {
-            grille.jouer(j, rangee);
+            grille.jouer(j.getCouleur(), rangee);
             verifierGagnant();
             indiceJoueurCourant = (indiceJoueurCourant + 1) % 2;
+            notifyObservers();
         }
     }
 
@@ -64,5 +69,9 @@ public class Partie extends Sujet {
         else /* diff < 0 */
             gagnant = joueurs[1];
         return gagnant;
+    }
+
+    public Joueur[] getJoueurs() {
+        return joueurs;
     }
 }
