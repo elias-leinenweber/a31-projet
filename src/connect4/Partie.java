@@ -40,7 +40,11 @@ public class Partie extends Sujet {
 
     private void verifierGagnant() {
         if (grille.aUnGagnant()) {
-            grille.getGagnant().remporterManche();
+            Couleur gagnante = grille.getGagnant();
+            if (joueurs[0].getCouleur() == gagnante)
+                joueurs[0].remporterManche();
+            else
+                joueurs[1].remporterManche();
             nouvelleManche();
         }
     }
