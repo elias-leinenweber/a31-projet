@@ -1,19 +1,20 @@
-package vue;
+package fr.unistra.iutrs.a31.connect4.view;
 
-import connect4.Game;
-import connect4.Player;
-import observer.Observer;
+import fr.unistra.iutrs.a31.connect4.controller.Game;
+import fr.unistra.iutrs.a31.connect4.model.Player;
+import fr.unistra.iutrs.a31.observer.Observer;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 
-public class VueJoueur extends JFrame implements Observer {
-    private static final ArrayList<VueJoueur> vues = new ArrayList<>();
+public class MainWindow extends JFrame implements Observer {
+    private static final ArrayList<MainWindow> vues = new ArrayList<>();
     protected Game partie;
     protected Player joueur;
 
-    public VueJoueur() {
+    public MainWindow() {
         partie = new Game("Emile", "Jules", 4);
         setVisible(true);
         setSize(400, 400);
@@ -39,7 +40,7 @@ public class VueJoueur extends JFrame implements Observer {
         //while (i<*/
     }
 
-    public static ArrayList<VueJoueur> getVues() {
+    public static List<MainWindow> getVues() {
         return vues;
     }
 

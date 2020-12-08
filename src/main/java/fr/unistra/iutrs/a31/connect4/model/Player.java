@@ -1,4 +1,4 @@
-package connect4;
+package fr.unistra.iutrs.a31.connect4.model;
 
 /**
  * Modélise un joueur.

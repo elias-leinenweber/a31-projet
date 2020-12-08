@@ -1,6 +1,10 @@
-package connect4;
+package fr.unistra.iutrs.a31.connect4.controller;
 
-import observer.Subject;
+import fr.unistra.iutrs.a31.connect4.model.Checker;
+import fr.unistra.iutrs.a31.connect4.model.Grid;
+import fr.unistra.iutrs.a31.connect4.model.Player;
+import fr.unistra.iutrs.a31.connect4.model.Rules;
+import fr.unistra.iutrs.a31.observer.Subject;
 
 import static java.util.Objects.requireNonNull;
 

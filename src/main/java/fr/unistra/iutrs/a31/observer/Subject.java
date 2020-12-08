@@ -1,4 +1,4 @@
-package observer;
+package fr.unistra.iutrs.a31.observer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.List;
 import static java.util.Objects.requireNonNull;
 
 public abstract class Subject {
-
     private final List<Observer> observers;
 
     public Subject() {
