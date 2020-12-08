@@ -1,31 +1,31 @@
-package observateur;
+package observer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
-public abstract class Sujet {
+public abstract class Subject {
 
-    private final List<Observateur> observers;
+    private final List<Observer> observers;
 
-    public Sujet() {
+    public Subject() {
         observers = new ArrayList<>();
     }
 
-    public void register(Observateur o) {
+    public void register(Observer o) {
         observers.add(requireNonNull(o));
     }
 
-    public void unregister(Observateur o) {
+    public void unregister(Observer o) {
         observers.remove(o);
     }
 
     protected void notifyObservers() {
-        observers.forEach(Observateur::mettreAjour);
+        observers.forEach(Observer::update);
     }
 
-    protected final List<Observateur> getObservers() {
+    protected final List<Observer> getObservers() {
         return observers;
     }
 

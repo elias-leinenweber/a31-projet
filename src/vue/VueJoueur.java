@@ -1,33 +1,33 @@
 package vue;
 
-import connect4.Joueur;
-import connect4.Partie;
-import observateur.Observateur;
+import connect4.Game;
+import connect4.Player;
+import observer.Observer;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
-public class VueJoueur extends JFrame implements Observateur {
-    protected Partie partie;
-    protected Joueur joueur;
-    private static ArrayList<VueJoueur> vues=new ArrayList<>();
+public class VueJoueur extends JFrame implements Observer {
+    private static final ArrayList<VueJoueur> vues = new ArrayList<>();
+    protected Game partie;
+    protected Player joueur;
 
-    public VueJoueur(){
-        Partie partie=new Partie("Emile","Jules",4 );
+    public VueJoueur() {
+        partie = new Game("Emile", "Jules", 4);
         setVisible(true);
-        setSize(400,400);
+        setSize(400, 400);
 
         //Panel haut avec noms Joueur + couleur
         JPanel jpTop = new JPanel(new GridLayout(1, 4));
         jpTop.add(new JPanel()).setBackground(Color.YELLOW);
-        jpTop.add(new JLabel(partie.getJoueurs()[0].toString()));
-        jpTop.add(new JLabel(partie.getJoueurs()[1].toString()));
+        jpTop.add(new JLabel(partie.getPlayers()[0].toString()));
+        jpTop.add(new JLabel(partie.getPlayers()[1].toString()));
         jpTop.add(new JPanel()).setBackground(Color.RED);
-        jpTop.getComponent(0).setSize(20,20);
+        jpTop.getComponent(0).setSize(20, 20);
 
         this.add(jpTop, BorderLayout.NORTH);
-        jpTop.setSize(400,20);
+        jpTop.setSize(400, 20);
         jpTop.setOpaque(true);
         setLocationRelativeTo(null);
 
@@ -36,16 +36,14 @@ public class VueJoueur extends JFrame implements Observateur {
         board.setBounds(20, 20, imageBoard.getIconWidth(), imageBoard.getIconHeight());
         //this.add(new GridLayout(partie.getGrid().getLargeur(), partie.getGrid.getHauteur()));
         int i =0;
-        //while (i<
-
-
+        //while (i<*/
     }
-*/
-    public static ArrayList<VueJoueur> getVues(){return vues;}
+
+    public static ArrayList<VueJoueur> getVues() {
+        return vues;
+    }
 
     @Override
-    public void mettreAjour() {
-
+    public void update() {
     }
-
 }

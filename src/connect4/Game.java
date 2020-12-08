@@ -1,10 +1,10 @@
 package connect4;
 
-import observateur.Sujet;
+import observer.Subject;
 
 import static java.util.Objects.requireNonNull;
 
-public class Game extends Sujet {
+public class Game extends Subject {
 
     private final Player[] players;
     private final Grid grid;
