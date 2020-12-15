@@ -35,8 +35,7 @@ public class VueJoueur extends JFrame implements Observateur {
         add(new JLabel(board));
         board.setBounds(20, 20, imageBoard.getIconWidth(), imageBoard.getIconHeight());
         //this.add(new GridLayout(partie.getGrid().getLargeur(), partie.getGrid.getHauteur()));
-        int i =0;
-        //while (i<
+        
 
 
     }
