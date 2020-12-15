@@ -1,4 +1,4 @@
-package connect4;
+package fr.unistra.iutrs.a31.connect4.model;
 
 import java.util.Arrays;
 
@@ -6,6 +6,11 @@ import java.util.Arrays;
  * Modélise la grille de jeu.
  */
 public class Grid {
+    private static final int UP = +1;
+    private static final int DOWN = -1;
+    private static final int LEFT = -1;
+    private static final int RIGHT = +1;
+
     private final Checker[][] grid;
     private final int height;
     private final int width;
@@ -57,7 +62,11 @@ public class Grid {
 
         for (int row = 0; row < height; ++row)
             for (int column = 0; column < width; ++column)
-                if (grid[row][column] == playerColor && (count(row, column, -1, +1) >= Rules.IN_A_ROW || count(row, column, 0, +1) >= Rules.IN_A_ROW || count(row, column, +1, +1) >= Rules.IN_A_ROW || count(row, column, +1, 0) >= Rules.IN_A_ROW)) {
+                if (grid[row][column] == playerColor &&
+                    (count(row, column, -1, +1) >= Rules.IN_A_ROW ||
+                     count(row, column,  0, +1) >= Rules.IN_A_ROW ||
+                     count(row, column, +1, +1) >= Rules.IN_A_ROW ||
+                     count(row, column, +1,  0) >= Rules.IN_A_ROW)) {
                     winningColor = playerColor;
                     res = true;
                     break;
@@ -66,18 +75,17 @@ public class Grid {
         return res;
     }
 
-    private int count(int ligneDepart, int colonneDepart, int dirLigne, int dirColonne) {
-        int compteur = 0;
-        int ligne = ligneDepart;
-        int colonne = colonneDepart;
+    private int count(int startRow, int startColumn, int rowDirection, int columnDirection) {
+        int counter = 0;
+        int row = startRow;
+        int column = startColumn;
 
-        while (grid[ligne][colonne] == grid[ligneDepart][colonneDepart]) {
-            ++compteur;
-            ligne += dirLigne;
-            colonne += dirColonne;
+        while (grid[row][column] == grid[startRow][startColumn]) {
+            ++counter;
+            row += rowDirection;
+            column += columnDirection;
         }
-
-        return compteur;
+        return counter;
     }
 
     public Checker getWinningColor() {

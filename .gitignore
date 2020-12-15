@@ -1,1 +1,5 @@
 /out/
+
+# SonarQube
+/.scannerwork/
+/sonar-project.properties
