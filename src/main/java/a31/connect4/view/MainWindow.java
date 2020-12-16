@@ -50,6 +50,7 @@ public class MainWindow extends JFrame implements Observer {
             }
         }
 
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         /*ImageIcon board = new ImageIcon( getClass().getClassLoader().getResource("Board.png") ); // dans le dossier bin/
         add(new JLabel(board));
         board.setBounds(20, 20, imageBoard.getIconWidth(), imageBoard.getIconHeight());
