@@ -1,4 +1,4 @@
-package fr.unistra.iutrs.a31.connect4.model;
+package a31.connect4.model;
 
 import java.util.Arrays;
 
@@ -95,4 +95,6 @@ public class Grid {
     public int getWidth() {
         return width;
     }
+
+    public int getHeight(){ return height;}
 }

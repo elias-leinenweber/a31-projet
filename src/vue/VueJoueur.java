@@ -13,10 +13,13 @@ public class VueJoueur extends JFrame implements Observateur {
     protected Joueur joueur;
     private static ArrayList<VueJoueur> vues=new ArrayList<>();
 
-    public VueJoueur(){
-        Partie partie=new Partie("Emile","Jules",4 );
+    public VueJoueur(Partie p, Joueur j){
+        //Partie partie=new Partie("Emile","Jules",4 );
+        this.partie=p;
+        this.joueur=j;
         setVisible(true);
         setSize(400,400);
+        getCompoanntsqevq;
 
         //Panel haut avec noms Joueur + couleur
         JPanel jpTop = new JPanel(new GridLayout(1, 4));
@@ -34,10 +37,12 @@ public class VueJoueur extends JFrame implements Observateur {
         /*ImageIcon board = new ImageIcon( getClass().getClassLoader().getResource("Board.png") ); // dans le dossier bin/
         add(new JLabel(board));
         board.setBounds(20, 20, imageBoard.getIconWidth(), imageBoard.getIconHeight());
-        //this.add(new GridLayout(partie.getGrid().getLargeur(), partie.getGrid.getHauteur()));
-        
+        this.add(new GridLayout(partie.getGrid().getLargeur(), partie.getGrid.getHauteur()));
+        */
 
+        for (int i=0; i<)
 
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 */
     public static ArrayList<VueJoueur> getVues(){return vues;}

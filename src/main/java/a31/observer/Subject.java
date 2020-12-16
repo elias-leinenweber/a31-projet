@@ -1,4 +1,4 @@
-package fr.unistra.iutrs.a31.observer;
+package a31.observer;
 
 import java.util.ArrayList;
 import java.util.List;
