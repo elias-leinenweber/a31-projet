@@ -1,7 +1,7 @@
 package fr.unistra.iutrs.a31.connect4.model;
 
 /**
- * Modélise un joueur.
+ * Modélise un joueur dans le jeu de Puissance 4.
  */
 public class Player {
     private final String name;

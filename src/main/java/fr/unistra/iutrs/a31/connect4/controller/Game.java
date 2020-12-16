@@ -8,6 +8,9 @@ import fr.unistra.iutrs.a31.observer.Subject;
 
 import static java.util.Objects.requireNonNull;
 
+/**
+ * La classe "contrôleur" du jeu.
+ */
 public class Game extends Subject {
 
     private final Player[] players;
@@ -18,6 +21,7 @@ public class Game extends Subject {
     private boolean isOver;
 
     /**
+     * Crée une nouvelle partie.
      *
      * @param player1    le nom du premier joueur
      * @param player2    le nom du deuxième joueur
@@ -38,7 +42,13 @@ public class Game extends Subject {
         isOver = false;
     }
 
-    public void jouer(Player player, int column) {
+    /**
+     * Tente de placer un jeton dans
+     *
+     * @param player
+     * @param column
+     */
+    public void play(Player player, int column) {
         if (player == players[currentPlayerIndex] && checkColumn(column)) {
             if (grid.drop(player.getColor(), column)) {
                 verifierGagnant();
