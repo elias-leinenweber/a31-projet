@@ -33,7 +33,7 @@ public class Grid {
             Arrays.fill(row, Checker.NONE);
     }
 
-    public boolean drop(Checker checker, int column) {
+    public int drop(Checker checker, int column) {
         if (checker == Checker.NONE || column < 0 || column >= width)
             throw new IllegalArgumentException();
         /* On parcourt la colonne en partant du bas... */
@@ -50,7 +50,7 @@ public class Grid {
         /* On remplit la case vide trouvée. */
         if (!isColumnFull)
             grid[row][column] = checker;
-        return !isColumnFull;
+        return isColumnFull ? -1 : row;
     }
 
     public boolean hasWinningColor() {
@@ -97,4 +97,11 @@ public class Grid {
     }
 
     public int getHeight(){ return height;}
+
+    public boolean isOverflow() {
+        for (int i = 0; i < grid[0].length; ++i)
+            if (grid[0][i] == Checker.NONE)
+                return false;
+        return true;
+    }
 }

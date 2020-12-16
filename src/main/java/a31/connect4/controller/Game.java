@@ -19,6 +19,7 @@ public class Game extends Subject {
     private int currentPlayerIndex;
     private int wins;
     private boolean isOver;
+    private int turn;
 
     /**
      * Crée une nouvelle partie.
@@ -40,6 +41,7 @@ public class Game extends Subject {
         this.winsNeeded = winsNeeded;
         wins = 0;
         isOver = false;
+        turn = 1;
     }
 
     /**
@@ -48,14 +50,17 @@ public class Game extends Subject {
      * @param player
      * @param column
      */
-    public void play(Player player, int column) {
+    public int play(Player player, int column) {
+        int row = -1;
         if (player == players[currentPlayerIndex] && checkColumn(column)) {
-            if (grid.drop(player.getColor(), column)) {
+            if ((row = grid.drop(player.getColor(), column)) != -1) {
                 verifierGagnant();
                 currentPlayerIndex = (currentPlayerIndex + 1) % 2;
+                ++turn;
                 notifyObservers();
             }
         }
+        return row;
     }
 
     private boolean checkColumn(int column) {
@@ -75,8 +80,10 @@ public class Game extends Subject {
     private void nouvelleManche() {
         if (++wins > winsNeeded)
             isOver = true;
-        else
+        else {
             grid.clear();
+            turn = 1;
+        }
     }
 
     public Player getWinner() {
@@ -101,5 +108,13 @@ public class Game extends Subject {
 
     public boolean isOver() {
         return isOver;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public Player getCurrentPlayer() {
+        return players[currentPlayerIndex];
     }
 }
