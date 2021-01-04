@@ -36,7 +36,7 @@ public class Game extends Subject {
         players[1] = new Player(requireNonNull(player2), Checker.RED);
         currentPlayerIndex = 0;
 
-        grid = new Grid(Rules.COLUMNS, Rules.ROWS);
+        grid = new Grid(Rules.ROWS, Rules.COLUMNS);
 
         this.winsNeeded = winsNeeded;
         wins = 0;
