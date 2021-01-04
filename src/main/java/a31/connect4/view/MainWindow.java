@@ -168,7 +168,7 @@ public class MainWindow extends JFrame implements Observer {
         ImageIcon imgChecker = checker == Checker.RED ? RED : YELLOW;
         JLabel checkerLabel = new JLabel(imgChecker);
 
-        checkerLabel.setBounds(75 * col + 27, 75 * row + 27, imgChecker.getIconWidth(), imgChecker.getIconHeight());
+        checkerLabel.setBounds(75 * col + 27, 75 * (board.getHeight() - row - 1) + 27, imgChecker.getIconWidth(), imgChecker.getIconHeight());
         layeredGameBoard.add(checkerLabel, 0, 0);
     }
 
@@ -205,14 +205,13 @@ public class MainWindow extends JFrame implements Observer {
      * It returns a component to be drawn by main window. This function creates the main window
      * components. It calls the "actionListener" function, when a click on a button is made.
      */
-    public Component createContentComponents() {
+    private Component createContentComponents() {
         // Create a panel to set up the board buttons.
         JPanel panelBoardNumbers = new JPanel();
         panelBoardNumbers.setLayout(new GridLayout(1, Rules.COLUMNS, Rules.ROWS, 4));
         panelBoardNumbers.setBorder(BorderFactory.createEmptyBorder(2, 22, 2, 22));
 
-        for (JButton button : buttons)
-            panelBoardNumbers.add(button);
+        Arrays.stream(buttons).forEach(panelBoardNumbers::add);
 
         // main Connect-4 board creation
         layeredGameBoard = new JLayeredPane();
@@ -235,7 +234,7 @@ public class MainWindow extends JFrame implements Observer {
         return panelMain;
     }
 
-    public void gameOver() {
+    private void gameOver() {
         Player winner = game.getWinner();
         int choice = JOptionPane.showConfirmDialog(null, (winner != null) ?
                 (winner.getName() + " wins! Start a new game?") :

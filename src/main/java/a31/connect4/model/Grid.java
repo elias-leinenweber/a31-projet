@@ -97,7 +97,9 @@ public class Grid {
         return width;
     }
 
-    public int getHeight(){ return height;}
+    public int getHeight() {
+        return height;
+    }
 
     public boolean isOverflow() {
         for (int i = 0; i < grid[0].length; ++i)
