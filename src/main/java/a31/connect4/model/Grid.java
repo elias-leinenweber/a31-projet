@@ -80,7 +80,8 @@ public class Grid {
         int row = startRow;
         int column = startColumn;
 
-        while (grid[row][column] == grid[startRow][startColumn]) {
+        while ((row >= 0 && row < height && column >= 0 && column < width) &&
+                grid[row][column] == grid[startRow][startColumn]) {
             ++counter;
             row += rowDirection;
             column += columnDirection;
