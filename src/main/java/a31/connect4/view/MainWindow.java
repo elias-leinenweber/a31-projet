@@ -22,26 +22,32 @@ public class MainWindow extends JFrame implements Observer {
     private Game game;
     private Grid board;
     private final JButton[] buttons;
-    private JLabel turnMessage;
+    private JLabel lblStatus;
     private JLayeredPane layeredGameBoard;
     private int col, row;
 
     public MainWindow() {
         super("Puissance 4");
 
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
+            if (info.getName().equals("GTK+")) {
+                try {
+                    UIManager.setLookAndFeel(info.getClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
 
         addMenus();
 
         buttons = new JButton[Rules.COLUMNS];
-        for (int i = 0; i < Rules.COLUMNS; i++) {
-            buttons[i] = new JButton(i + 1 + "");
+        for (int i = 0; i < Rules.COLUMNS; ++i) {
+            buttons[i] = new JButton(String.valueOf(i + 1));
             buttons[i].setFocusable(false);
         }
+
+        lblStatus = new JLabel();
 
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -101,8 +107,7 @@ public class MainWindow extends JFrame implements Observer {
         board = new Grid(Rules.ROWS, Rules.COLUMNS);
         newGame();
 
-        Component compMainWindowContents = createContentComponents();
-        getContentPane().add(compMainWindowContents, BorderLayout.CENTER);
+        getContentPane().add(createContentComponents(), BorderLayout.CENTER);
 
         if (getKeyListeners().length == 0) {
             addKeyListener(new KeyListener() {
@@ -131,8 +136,8 @@ public class MainWindow extends JFrame implements Observer {
         JToolBar tools = new JToolBar();
         tools.setFloatable(false);
         add(tools, BorderLayout.PAGE_END);
-        turnMessage = new JLabel("Turn: " + game.getTurn());
-        tools.add(turnMessage);
+        lblStatus.setText("Turn: " + game.getTurn());
+        tools.add(lblStatus);
 
         addMenus();
     }
@@ -173,7 +178,7 @@ public class MainWindow extends JFrame implements Observer {
     }
 
     private void game() {
-        turnMessage.setText("Tour : " + game.getTurn());
+        lblStatus.setText("Tour : " + game.getTurn());
         placeChecker(game.getCurrentPlayer().getColor(), row, col);
         if (game.isOver())
             gameOver();
@@ -183,11 +188,11 @@ public class MainWindow extends JFrame implements Observer {
         if (b) {
             for (int i = 0; i < buttons.length; i++) {
                 JButton button = buttons[i];
-                int column = i;
 
                 if (button.getActionListeners().length == 0) {
+                    int finalI = i;
                     button.addActionListener(e -> {
-                        makeMove(column);
+                        makeMove(finalI);
 
                         if (!board.isOverflow())
                             game();
@@ -250,5 +255,6 @@ public class MainWindow extends JFrame implements Observer {
 
     @Override
     public void update() {
+        lblStatus.setText(lblStatus.getText() + " (" + game.getCurrentPlayer() + ")");
     }
 }
