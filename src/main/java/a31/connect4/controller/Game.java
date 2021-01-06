@@ -42,6 +42,8 @@ public class Game extends Subject {
         wins = 0;
         isOver = false;
         turn = 1;
+
+        notifyObservers();
     }
 
     /**
@@ -116,5 +118,9 @@ public class Game extends Subject {
 
     public Player getCurrentPlayer() {
         return players[currentPlayerIndex];
+    }
+
+    public int getWinsNeeded() {
+        return winsNeeded;
     }
 }

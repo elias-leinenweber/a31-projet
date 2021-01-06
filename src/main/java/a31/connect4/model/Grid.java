@@ -107,4 +107,8 @@ public class Grid {
                 return false;
         return true;
     }
+
+    public Checker[][] getGrid() {
+        return grid;
+    }
 }

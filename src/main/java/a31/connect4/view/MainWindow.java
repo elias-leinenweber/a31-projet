@@ -20,44 +20,56 @@ public class MainWindow extends JFrame implements Observer {
     private static final int DEFAULT_HEIGHT = 525;
 
     private Game game;
-    private Grid board;
     private final JButton[] buttons;
-    private JLabel lblStatus;
-    private JLayeredPane layeredGameBoard;
-    private int col, row;
+    private final JLabel[][] grid;
+    private final JLabel lblStatus;
 
     public MainWindow() {
         super("Puissance 4");
+        initLookAndFeel();
 
-        for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
-            if (info.getName().equals("GTK+")) {
-                try {
-                    UIManager.setLookAndFeel(info.getClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
-
-        addMenus();
+        initMenuBar();
 
         buttons = new JButton[Rules.COLUMNS];
         for (int i = 0; i < Rules.COLUMNS; ++i) {
             buttons[i] = new JButton(String.valueOf(i + 1));
+            buttons[i].setEnabled(false);
             buttons[i].setFocusable(false);
         }
 
-        lblStatus = new JLabel();
+        /* Le panel principal */
+        grid = new JLabel[Rules.ROWS][Rules.COLUMNS];
+        getContentPane().add(createContentComponents(), BorderLayout.CENTER);
+
+        JToolBar barStatus = new JToolBar();
+        barStatus.setFloatable(false);
+
+        lblStatus = new JLabel("Tour n°");
+        barStatus.add(lblStatus);
+        add(barStatus, BorderLayout.PAGE_END);
+
+        /* Écouteur de touches (raccourcis clavier pour les boutons) */
+        addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {}
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                makeMove(Integer.parseInt(KeyEvent.getKeyText(e.getKeyCode())) - 1);
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        });
 
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
 
         centerWindow(this, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-        createNewGame();
     }
 
-    private void addMenus() {
+    private void initMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
         JMenu gameMenu = new JMenu("Partie");
@@ -97,113 +109,41 @@ public class MainWindow extends JFrame implements Observer {
          * TODO Fenêtre de dialogue qui demande les noms des joueurs et le
          * nombre de manches à jouer.
          */
-        game = new Game("Alice", "Bob", 1);
+        newGame("Alice", "Bob", 1);
+    }
+
+    private void newGame(String player1, String player2, int winsNeeded) {
+        game = new Game(player1, player2, winsNeeded);
         game.register(this);
-    }
 
-    private void createNewGame() {
+        /* TODO Réinitialiser l'interface. */
         setAllButtonsEnabled(true);
-
-        board = new Grid(Rules.ROWS, Rules.COLUMNS);
-        newGame();
-
-        getContentPane().add(createContentComponents(), BorderLayout.CENTER);
-
-        if (getKeyListeners().length == 0) {
-            addKeyListener(new KeyListener() {
-                @Override
-                public void keyTyped(KeyEvent e) {}
-
-                @Override
-                public void keyPressed(KeyEvent e) {
-                    makeMove(Integer.parseInt(KeyEvent.getKeyText(e.getKeyCode())) - 1);
-                    if (!board.isOverflow())
-                        game();
-                }
-
-                @Override
-                public void keyReleased(KeyEvent e) {}
-            });
-        }
-
-        setFocusable(true);
-
-        pack();
-        // Makes the board visible before adding menus.
-        // frameMainWindow.setVisible(true);
-
-        // Add the turn label.
-        JToolBar tools = new JToolBar();
-        tools.setFloatable(false);
-        add(tools, BorderLayout.PAGE_END);
-        lblStatus.setText("Turn: " + game.getTurn());
-        tools.add(lblStatus);
-
-        addMenus();
     }
 
-    /**
-     * Centre la fenêtre sur l'écran.
-     *
-     * @param frame  la fenêtre à centrer
-     * @param width  la largeur de la fenêtre
-     * @param height la hauteur de la fenêtre
-     */
-    public static void centerWindow(Window frame, int width, int height) {
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) (dimension.getWidth() - frame.getWidth() - width) / 2;
-        int y = (int) (dimension.getHeight() - frame.getHeight() - height) / 2;
-        frame.setLocation(x, y);
-    }
-
-    // It finds which player plays next and makes a move on the board.
     private void makeMove(int col) {
-        row = game.play(game.getCurrentPlayer(), col);
-        this.col = col;
-    }
-
-    /**
-     * Insère un jeton dans une case donnée.
-     *
-     * @param checker le jeton à insérer
-     * @param row la ligne dans laquelle insérer le jeton
-     * @param col la colonne dans laquelle insérer le jeton
-     */
-    private void placeChecker(Checker checker, int row, int col) {
-        ImageIcon imgChecker = checker == Checker.RED ? RED : YELLOW;
-        JLabel checkerLabel = new JLabel(imgChecker);
-
-        checkerLabel.setBounds(75 * col + 27, 75 * (board.getHeight() - row - 1) + 27, imgChecker.getIconWidth(), imgChecker.getIconHeight());
-        layeredGameBoard.add(checkerLabel, 0, 0);
-    }
-
-    private void game() {
-        lblStatus.setText("Tour : " + game.getTurn());
-        placeChecker(game.getCurrentPlayer().getColor(), row, col);
-        if (game.isOver())
-            gameOver();
+        game.play(game.getCurrentPlayer(), col);
     }
 
     private void setAllButtonsEnabled(boolean b) {
         if (b) {
-            for (int i = 0; i < buttons.length; i++) {
+            for (int i = 0; i < buttons.length; ++i) {
                 JButton button = buttons[i];
 
+                button.setEnabled(true);
                 if (button.getActionListeners().length == 0) {
                     int finalI = i;
                     button.addActionListener(e -> {
                         makeMove(finalI);
-
-                        if (!board.isOverflow())
-                            game();
                         requestFocusInWindow();
                     });
                 }
             }
         } else
-            for (JButton button : buttons)
+            for (JButton button : buttons) {
+                button.setEnabled(false);
                 for (ActionListener actionListener : button.getActionListeners())
                     button.removeActionListener(actionListener);
+            }
     }
 
     /**
@@ -211,6 +151,7 @@ public class MainWindow extends JFrame implements Observer {
      * components. It calls the "actionListener" function, when a click on a button is made.
      */
     private Component createContentComponents() {
+
         // Create a panel to set up the board buttons.
         JPanel panelBoardNumbers = new JPanel();
         panelBoardNumbers.setLayout(new GridLayout(1, Rules.COLUMNS, Rules.ROWS, 4));
@@ -219,12 +160,19 @@ public class MainWindow extends JFrame implements Observer {
         Arrays.stream(buttons).forEach(panelBoardNumbers::add);
 
         // main Connect-4 board creation
-        layeredGameBoard = new JLayeredPane();
+        JLayeredPane layeredGameBoard = new JLayeredPane();
         layeredGameBoard.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         layeredGameBoard.setBorder(BorderFactory.createTitledBorder("Puissance 4"));
         JLabel imageBoardLabel = new JLabel(BOARD);
         imageBoardLabel.setBounds(20, 20, BOARD.getIconWidth(), BOARD.getIconHeight());
         layeredGameBoard.add(imageBoardLabel, 0, 1);
+
+        for (int i = 0; i < Rules.ROWS; ++i)
+            for (int j = 0; j < Rules.COLUMNS; ++j) {
+                grid[i][j] = new JLabel();
+                grid[i][j].setBounds(75 * j + 27, 75 * (Rules.ROWS - i - 1) + 27, RED.getIconWidth(), RED.getIconHeight());
+                layeredGameBoard.add(grid[i][j], 0, 0);
+            }
 
         // panel creation to store all the elements of the board
         JPanel panelMain = new JPanel();
@@ -239,22 +187,64 @@ public class MainWindow extends JFrame implements Observer {
         return panelMain;
     }
 
-    private void gameOver() {
-        Player winner = game.getWinner();
-        int choice = JOptionPane.showConfirmDialog(null, (winner != null) ?
-                (winner.getName() + " wins! Start a new game?") :
-                "It's a draw! Start a new game?",
-                "Game Over", JOptionPane.YES_NO_OPTION);
-
-        setAllButtonsEnabled(false);
-        Arrays.stream(getKeyListeners()).forEach(this::removeKeyListener);
-
-        if (choice == JOptionPane.YES_OPTION)
-            createNewGame();
-    }
-
     @Override
     public void update() {
-        lblStatus.setText(lblStatus.getText() + " (" + game.getCurrentPlayer() + ")");
+        lblStatus.setText("Tour n° " + game.getTurn() + " (" + game.getCurrentPlayer().getName() + ")");
+
+        Checker[][] gameGrid = game.getGrid().getGrid();
+        for (int i = 0; i < Rules.ROWS; ++i)
+            for (int j = 0; j < Rules.COLUMNS; ++j)
+                switch (gameGrid[i][j]) {
+                    case RED -> grid[i][j].setIcon(RED);
+                    case YELLOW -> grid[i][j].setIcon(YELLOW);
+                    case NONE -> grid[i][j].setIcon(null);
+                }
+
+        if (game.isOver()) {
+            Player winner = game.getWinner();
+            int choice = JOptionPane.showConfirmDialog(null, (winner != null) ?
+                            (winner.getName() + " wins! Start a new game?") :
+                            "It's a draw! Start a new game?",
+                            "Game Over", JOptionPane.YES_NO_OPTION);
+
+            setAllButtonsEnabled(false);
+            Arrays.stream(getKeyListeners()).forEach(this::removeKeyListener);
+
+            if (choice == JOptionPane.YES_OPTION)
+                newGame(game.getPlayers()[0].getName(),
+                        game.getPlayers()[1].getName(),
+                        game.getWinsNeeded());
+        }
+    }
+
+    /**
+     * Initialise le "look-and-feel" pour le programme en cours à "GTK+", s'il
+     * est disponible.
+     */
+    private static void initLookAndFeel() {
+        for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
+            if (info.getName().equals("GTK+")) {
+                try {
+                    UIManager.setLookAndFeel(info.getClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                         UnsupportedLookAndFeelException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+    }
+
+    /**
+     * Centre la fenêtre sur l'écran.
+     *
+     * @param frame  la fenêtre à centrer
+     * @param width  la largeur de la fenêtre
+     * @param height la hauteur de la fenêtre
+     */
+    private static void centerWindow(Window frame, int width, int height) {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) (dimension.getWidth() - frame.getWidth() - width) / 2;
+        int y = (int) (dimension.getHeight() - frame.getHeight() - height) / 2;
+        frame.setLocation(x, y);
     }
 }
