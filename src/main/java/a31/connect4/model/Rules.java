@@ -7,7 +7,7 @@ public final class Rules {
     public static final int IN_A_ROW = 4;
 
     /**
-     * Rend la classe non instanciable.
+     * Rend la classe non instantiable.
      */
     private Rules() {}
 }

@@ -2,7 +2,6 @@ package a31.connect4.view;
 
 import a31.connect4.controller.Game;
 import a31.connect4.model.Checker;
-import a31.connect4.model.Grid;
 import a31.connect4.model.Player;
 import a31.connect4.model.Rules;
 import a31.observer.Observer;
@@ -17,7 +16,7 @@ public class MainWindow extends JFrame implements Observer {
     private static final ImageIcon RED      = new ImageIcon(MainWindow.class.getResource("/Red.png"));
     private static final ImageIcon YELLOW   = new ImageIcon(MainWindow.class.getResource("/Yellow.png"));
     private static final int DEFAULT_WIDTH  = 570;
-    private static final int DEFAULT_HEIGHT = 525;
+    private static final int DEFAULT_HEIGHT = 500;
 
     private Game game;
     private final JButton[] buttons;
@@ -39,34 +38,20 @@ public class MainWindow extends JFrame implements Observer {
 
         /* Le panel principal */
         grid = new JLabel[Rules.ROWS][Rules.COLUMNS];
-        getContentPane().add(createContentComponents(), BorderLayout.CENTER);
+        initMainPanel();
+
+        lblStatus = new JLabel("Tour n°");
 
         JToolBar barStatus = new JToolBar();
         barStatus.setFloatable(false);
-
-        lblStatus = new JLabel("Tour n°");
         barStatus.add(lblStatus);
         add(barStatus, BorderLayout.PAGE_END);
 
-        /* Écouteur de touches (raccourcis clavier pour les boutons) */
-        addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                makeMove(Integer.parseInt(KeyEvent.getKeyText(e.getKeyCode())) - 1);
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setResizable(false);
         setVisible(true);
-
-        centerWindow(this, DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 
     private void initMenuBar() {
@@ -78,6 +63,7 @@ public class MainWindow extends JFrame implements Observer {
         JMenuItem exitItem = new JMenuItem("Quitter");
 
         JMenu helpMenu = new JMenu("?");
+        helpMenu.setMnemonic('?');
         JMenuItem tutorialItem = new JMenuItem("Tutoriel");
 
         /* Écouteurs d'événements. */
@@ -104,6 +90,42 @@ public class MainWindow extends JFrame implements Observer {
         setJMenuBar(menuBar);
     }
 
+    private void initMainPanel() {
+        /* Le panel pour les boutons */
+        JPanel pnlButtons = new JPanel();
+        pnlButtons.setLayout(new GridLayout(1, Rules.COLUMNS, 10, 0));
+        pnlButtons.setBorder(BorderFactory.createEmptyBorder(2, 22, 2, 22));
+        for (JButton button : buttons)
+            pnlButtons.add(button);
+
+        /* Le label pour l'image de la grille */
+        JLabel lblBoard = new JLabel(BOARD);
+        lblBoard.setBounds(20, 20, BOARD.getIconWidth(), BOARD.getIconHeight());
+
+        /* Le panel pour la grille */
+        JLayeredPane lpnBoard = new JLayeredPane();
+        lpnBoard.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
+        lpnBoard.add(lblBoard, 0, 1);
+
+        /* Crée les labels correspondant à toutes les cases */
+        for (int i = 0; i < Rules.ROWS; ++i)
+            for (int j = 0; j < Rules.COLUMNS; ++j) {
+                grid[i][j] = new JLabel();
+                grid[i][j].setBounds(75 * j + 27, 75 * (Rules.ROWS - i - 1) + 27,
+                                     RED.getIconWidth(), RED.getIconHeight());
+                lpnBoard.add(grid[i][j], 0, 0);
+            }
+
+        /* Le panel principal */
+        JPanel pnlMain = new JPanel();
+        pnlMain.setLayout(new BorderLayout());
+        pnlMain.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        pnlMain.add(pnlButtons, BorderLayout.NORTH);
+        pnlMain.add(lpnBoard, BorderLayout.CENTER);
+
+        getContentPane().add(pnlMain, BorderLayout.CENTER);
+    }
+
     private void newGame() {
         /*
          * TODO Fenêtre de dialogue qui demande les noms des joueurs et le
@@ -115,13 +137,8 @@ public class MainWindow extends JFrame implements Observer {
     private void newGame(String player1, String player2, int winsNeeded) {
         game = new Game(player1, player2, winsNeeded);
         game.register(this);
-
-        /* TODO Réinitialiser l'interface. */
+        update();
         setAllButtonsEnabled(true);
-    }
-
-    private void makeMove(int col) {
-        game.play(game.getCurrentPlayer(), col);
     }
 
     private void setAllButtonsEnabled(boolean b) {
@@ -138,58 +155,46 @@ public class MainWindow extends JFrame implements Observer {
                     });
                 }
             }
-        } else
+
+            /* Écouteur de touches (raccourcis clavier pour les boutons) */
+            addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {}
+
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    char keyChar = e.getKeyChar();
+                    if (Character.isDigit(keyChar))
+                        makeMove(Character.digit(keyChar, 10) - 1);
+                }
+
+                @Override
+                public void keyReleased(KeyEvent e) {}
+            });
+        } else {
             for (JButton button : buttons) {
                 button.setEnabled(false);
                 for (ActionListener actionListener : button.getActionListeners())
                     button.removeActionListener(actionListener);
             }
+
+            removeKeyListener(getKeyListeners()[0]);
+        }
     }
 
-    /**
-     * It returns a component to be drawn by main window. This function creates the main window
-     * components. It calls the "actionListener" function, when a click on a button is made.
-     */
-    private Component createContentComponents() {
-
-        // Create a panel to set up the board buttons.
-        JPanel panelBoardNumbers = new JPanel();
-        panelBoardNumbers.setLayout(new GridLayout(1, Rules.COLUMNS, Rules.ROWS, 4));
-        panelBoardNumbers.setBorder(BorderFactory.createEmptyBorder(2, 22, 2, 22));
-
-        Arrays.stream(buttons).forEach(panelBoardNumbers::add);
-
-        // main Connect-4 board creation
-        JLayeredPane layeredGameBoard = new JLayeredPane();
-        layeredGameBoard.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
-        layeredGameBoard.setBorder(BorderFactory.createTitledBorder("Puissance 4"));
-        JLabel imageBoardLabel = new JLabel(BOARD);
-        imageBoardLabel.setBounds(20, 20, BOARD.getIconWidth(), BOARD.getIconHeight());
-        layeredGameBoard.add(imageBoardLabel, 0, 1);
-
-        for (int i = 0; i < Rules.ROWS; ++i)
-            for (int j = 0; j < Rules.COLUMNS; ++j) {
-                grid[i][j] = new JLabel();
-                grid[i][j].setBounds(75 * j + 27, 75 * (Rules.ROWS - i - 1) + 27, RED.getIconWidth(), RED.getIconHeight());
-                layeredGameBoard.add(grid[i][j], 0, 0);
-            }
-
-        // panel creation to store all the elements of the board
-        JPanel panelMain = new JPanel();
-        panelMain.setLayout(new BorderLayout());
-        panelMain.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-
-        // add button and main board components to panelMain
-        panelMain.add(panelBoardNumbers, BorderLayout.NORTH);
-        panelMain.add(layeredGameBoard, BorderLayout.CENTER);
-
-        setResizable(false);
-        return panelMain;
+    private void makeMove(int col) {
+        if (col < Rules.COLUMNS)
+            game.play(game.getCurrentPlayer(), col);
     }
 
     @Override
     public void update() {
-        lblStatus.setText("Tour n° " + game.getTurn() + " (" + game.getCurrentPlayer().getName() + ")");
+        Player player1 = game.getPlayers()[0];
+        Player player2 = game.getPlayers()[1];
+        lblStatus.setText("Tour n° " + game.getTurn() +
+                " (" + game.getCurrentPlayer().getName() + ")" +
+                " | " + player1.getName() + " " + player1.getWins() +
+                " - " + player2.getWins() + " " + player2.getName());
 
         Checker[][] gameGrid = game.getGrid().getGrid();
         for (int i = 0; i < Rules.ROWS; ++i)
@@ -232,19 +237,5 @@ public class MainWindow extends JFrame implements Observer {
                 }
                 break;
             }
-    }
-
-    /**
-     * Centre la fenêtre sur l'écran.
-     *
-     * @param frame  la fenêtre à centrer
-     * @param width  la largeur de la fenêtre
-     * @param height la hauteur de la fenêtre
-     */
-    private static void centerWindow(Window frame, int width, int height) {
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) (dimension.getWidth() - frame.getWidth() - width) / 2;
-        int y = (int) (dimension.getHeight() - frame.getHeight() - height) / 2;
-        frame.setLocation(x, y);
     }
 }
