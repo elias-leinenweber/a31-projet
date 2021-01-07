@@ -132,7 +132,7 @@ public class MainWindow extends JFrame implements Observer {
 
     private void newGame() {
         String player1, player2;
-        int winsNeeded;
+        Integer winsNeeded;
 
         do {
             player1 = (String)promptUserInput("Veuillez entrer le nom du joueur 1 :",
@@ -142,9 +142,11 @@ public class MainWindow extends JFrame implements Observer {
             player2 = (String)promptUserInput("Veuillez entrer le nom du joueur 2 :",
                                               "Nom du joueur 2", null);
         } while (player2 == null || player2.length() < 1);
-        winsNeeded = (Integer)promptUserInput(
-                "Veuillez entrer le nombre de manches nécessaires pour gagner :",
-                "Nombre de manches", IntStream.range(1, 10).boxed().toArray(Integer[]::new));
+        do {
+            winsNeeded = (Integer)promptUserInput(
+                    "Veuillez entrer le nombre de manches nécessaires pour gagner :",
+                    "Nombre de manches", IntStream.range(1, 11).boxed().toArray(Integer[]::new));
+        } while (winsNeeded == null);
 
         newGame(player1, player2, winsNeeded);
     }
