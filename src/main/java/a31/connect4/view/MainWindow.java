@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Arrays;
+import java.util.stream.IntStream;
+import javax.swing.*;
 
 public class MainWindow extends JFrame implements Observer {
     private static final ImageIcon BOARD    = new ImageIcon(MainWindow.class.getResource("/Board.png"));
@@ -129,11 +131,22 @@ public class MainWindow extends JFrame implements Observer {
     }
 
     private void newGame() {
-        /*
-         * TODO Fenêtre de dialogue qui demande les noms des joueurs et le
-         * nombre de manches à jouer.
-         */
-        newGame("Alice", "Bob", 2);
+        String player1, player2;
+        int winsNeeded;
+
+        do {
+            player1 = (String)promptUserInput("Veuillez entrer le nom du joueur 1 :",
+                                              "Nom du joueur 1", null);
+        } while (player1 == null || player1.length() < 1);
+        do {
+            player2 = (String)promptUserInput("Veuillez entrer le nom du joueur 2 :",
+                                              "Nom du joueur 2", null);
+        } while (player2 == null || player2.length() < 1);
+        winsNeeded = (Integer)promptUserInput(
+                "Veuillez entrer le nombre de manches nécessaires pour gagner :",
+                "Nombre de manches", IntStream.range(1, 10).boxed().toArray(Integer[]::new));
+
+        newGame(player1, player2, winsNeeded);
     }
 
     private void newGame(String player1, String player2, int winsNeeded) {
@@ -141,6 +154,11 @@ public class MainWindow extends JFrame implements Observer {
         game.register(this);
         update();
         setAllButtonsEnabled(true);
+    }
+
+    private Object promptUserInput(String message, String title, Integer[] selectionValues) {
+        return JOptionPane.showInputDialog(this, message, title, JOptionPane.QUESTION_MESSAGE, null,
+                selectionValues, null);
     }
 
     private void setAllButtonsEnabled(boolean b) {
@@ -185,7 +203,7 @@ public class MainWindow extends JFrame implements Observer {
     }
 
     private void makeMove(int col) {
-        if (col < Rules.COLUMNS)
+        if (col < Rules.COLUMNS && !game.getGrid().isOverflow())
             game.play(game.getCurrentPlayer(), col);
     }
 
@@ -206,7 +224,7 @@ public class MainWindow extends JFrame implements Observer {
                     case YELLOW -> grid[i][j].setIcon(YELLOW);
                     case NONE -> grid[i][j].setIcon(null);
                 }
-        System.out.println(game.isOver());
+
         if (game.isOver()) {
             Player winner = game.getWinner();
             int choice = JOptionPane.showConfirmDialog(null, (winner != null) ?
