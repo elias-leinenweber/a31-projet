@@ -77,7 +77,8 @@ public class Game extends Subject {
             else
                 players[1].winGame();
             nouvelleManche();
-        }
+        } else if (grid.isOverflow())
+            nouvelleManche();
     }
 
     private void nouvelleManche() {
@@ -85,7 +86,7 @@ public class Game extends Subject {
             isOver = true;
         else {
             grid.clear();
-            turn = 1;
+            turn = 0;
         }
     }
 

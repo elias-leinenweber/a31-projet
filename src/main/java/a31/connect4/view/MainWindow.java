@@ -206,8 +206,7 @@ public class MainWindow extends JFrame implements Observer {
     }
 
     private void makeMove(int col) {
-        if (col < Rules.COLUMNS && !game.getGrid().isOverflow())
-            game.play(game.getCurrentPlayer(), col);
+        game.play(game.getCurrentPlayer(), col);
     }
 
     @Override
