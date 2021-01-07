@@ -15,10 +15,12 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class MainWindow extends JFrame implements Observer {
-    private static final ImageIcon BOARD    = new ImageIcon(MainWindow.class.getResource("/Board.png"));
-    private static final ImageIcon RED      = new ImageIcon(MainWindow.class.getResource("/Red.png"));
-    private static final ImageIcon YELLOW   = new ImageIcon(MainWindow.class.getResource("/Yellow.png"));
-    private static final int DEFAULT_WIDTH  = 570;
+
+    private static final ImageIcon BOARD = new ImageIcon(MainWindow.class.getResource(String.format("/Board%dx%d.png", Rules.COLUMNS, Rules.ROWS)));
+    private static final ImageIcon RED = new ImageIcon(MainWindow.class.getResource("/Red.png"));
+    private static final ImageIcon YELLOW = new ImageIcon(MainWindow.class.getResource("/Yellow.png"));
+
+    private static final int DEFAULT_WIDTH = Rules.COLUMNS * 76 + 38;
     private static final int DEFAULT_HEIGHT = 500;
 
     private Game game;
