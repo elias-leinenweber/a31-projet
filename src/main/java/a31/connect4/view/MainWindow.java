@@ -11,18 +11,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class MainWindow extends JFrame implements Observer {
-
-    private static final ImageIcon BOARD = new ImageIcon(MainWindow.class.getResource(String.format("/Board%dx%d.png", Rules.COLUMNS, Rules.ROWS)));
-    private static final ImageIcon RED = new ImageIcon(MainWindow.class.getResource("/Red.png"));
-    private static final ImageIcon YELLOW = new ImageIcon(MainWindow.class.getResource("/Yellow.png"));
-
-    private static final int DEFAULT_WIDTH = Rules.COLUMNS * 76 + 38;
-    private static final int DEFAULT_HEIGHT = 500;
-
     private Game game;
     private final JButton[] buttons;
     private final JLabel[][] grid;
@@ -105,12 +96,13 @@ public class MainWindow extends JFrame implements Observer {
             pnlButtons.add(button);
 
         /* Le label pour l'image de la grille */
-        JLabel lblBoard = new JLabel(BOARD);
-        lblBoard.setBounds(20, 20, BOARD.getIconWidth(), BOARD.getIconHeight());
+        ImageIcon boardImageIcon = ResourceLoader.getBoardImageIcon();
+        JLabel lblBoard = new JLabel(boardImageIcon);
+        lblBoard.setBounds(20, 20, boardImageIcon.getIconWidth(), boardImageIcon.getIconHeight());
 
         /* Le panel pour la grille */
         JLayeredPane lpnBoard = new JLayeredPane();
-        lpnBoard.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
+        lpnBoard.setPreferredSize(new Dimension(Rules.COLUMNS * 76 + 38, Rules.ROWS * 76 + 38));
         lpnBoard.add(lblBoard, 0, 1);
 
         /* Crée les labels correspondant à toutes les cases */
@@ -118,7 +110,8 @@ public class MainWindow extends JFrame implements Observer {
             for (int j = 0; j < Rules.COLUMNS; ++j) {
                 grid[i][j] = new JLabel();
                 grid[i][j].setBounds(75 * j + 27, 75 * (Rules.ROWS - i - 1) + 27,
-                                     RED.getIconWidth(), RED.getIconHeight());
+                                     ResourceLoader.RED.getIconWidth(),
+                                     ResourceLoader.RED.getIconHeight());
                 lpnBoard.add(grid[i][j], 0, 0);
             }
 
@@ -162,7 +155,7 @@ public class MainWindow extends JFrame implements Observer {
 
     private Object promptUserInput(String message, String title, Integer[] selectionValues) {
         return JOptionPane.showInputDialog(this, message, title, JOptionPane.QUESTION_MESSAGE, null,
-                selectionValues, null);
+                                           selectionValues, null);
     }
 
     private void setAllButtonsEnabled(boolean b) {
@@ -220,25 +213,21 @@ public class MainWindow extends JFrame implements Observer {
                 " | " + player1.getName() + " " + player1.getWins() +
                 " - " + player2.getWins() + " " + player2.getName());
 
-        Checker[][] gameGrid = game.getGrid().getGrid();
+        Checker[][] checkers = game.getGrid().getCheckers();
         for (int i = 0; i < Rules.ROWS; ++i)
             for (int j = 0; j < Rules.COLUMNS; ++j)
-                switch (gameGrid[i][j]) {
-                    case RED -> grid[i][j].setIcon(RED);
-                    case YELLOW -> grid[i][j].setIcon(YELLOW);
+                switch (checkers[i][j]) {
+                    case RED -> grid[i][j].setIcon(ResourceLoader.RED);
+                    case YELLOW -> grid[i][j].setIcon(ResourceLoader.YELLOW);
                     case NONE -> grid[i][j].setIcon(null);
                 }
 
         if (game.isOver()) {
-            Player winner = game.getWinner();
-            int choice = JOptionPane.showConfirmDialog(null,
-                    winner.getName() + " a gagné ! Faire une revanche ?",
-                    "Partie terminée", JOptionPane.YES_NO_OPTION);
-
             setAllButtonsEnabled(false);
-            Arrays.stream(getKeyListeners()).forEach(this::removeKeyListener);
 
-            if (choice == JOptionPane.YES_OPTION)
+            if (JOptionPane.showConfirmDialog(
+                    null, game.getWinner().getName() + " a gagné ! Faire une revanche ?",
+                    "Partie terminée", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 newGame(game.getPlayers()[0].getName(),
                         game.getPlayers()[1].getName(),
                         game.getWinsNeeded());
@@ -247,18 +236,21 @@ public class MainWindow extends JFrame implements Observer {
 
     /**
      * Initialise le "look-and-feel" pour le programme en cours à "GTK+", s'il
-     * est disponible.
+     * est disponible ; sinon, utilise l'apparence système.
      */
     private static void initLookAndFeel() {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
             if (info.getName().equals("GTK+")) {
                 try {
                     UIManager.setLookAndFeel(info.getClassName());
+                    return;
                 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                         UnsupportedLookAndFeelException e) {
-                    e.printStackTrace();
-                }
+                         UnsupportedLookAndFeelException ignored) {}
                 break;
             }
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException ignored) {}
     }
 }
