@@ -6,10 +6,12 @@ import a31.connect4.model.Player;
 import a31.connect4.model.Rules;
 import a31.observer.Observer;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.Arrays;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Arrays;
 
 public class MainWindow extends JFrame implements Observer {
     private static final ImageIcon BOARD    = new ImageIcon(MainWindow.class.getResource("/Board.png"));
@@ -131,7 +133,7 @@ public class MainWindow extends JFrame implements Observer {
          * TODO Fenêtre de dialogue qui demande les noms des joueurs et le
          * nombre de manches à jouer.
          */
-        newGame("Alice", "Bob", 1);
+        newGame("Alice", "Bob", 2);
     }
 
     private void newGame(String player1, String player2, int winsNeeded) {
@@ -204,7 +206,7 @@ public class MainWindow extends JFrame implements Observer {
                     case YELLOW -> grid[i][j].setIcon(YELLOW);
                     case NONE -> grid[i][j].setIcon(null);
                 }
-
+        System.out.println(game.isOver());
         if (game.isOver()) {
             Player winner = game.getWinner();
             int choice = JOptionPane.showConfirmDialog(null, (winner != null) ?

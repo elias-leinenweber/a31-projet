@@ -47,10 +47,13 @@ public class Game extends Subject {
     }
 
     /**
-     * Tente de placer un jeton dans
+     * Tente de retourner un jeton dans une colonne
+     * retourne le numéro de la colonne
+     *  si la colonne est pleine, retourne -1
      *
-     * @param player
-     * @param column
+     * @param player le joueur
+     * @param column le numéro de la colonne
+     * @return row la ligne où placer le jeton
      */
     public int play(Player player, int column) {
         int row = -1;
@@ -80,7 +83,7 @@ public class Game extends Subject {
     }
 
     private void nouvelleManche() {
-        if (++wins > winsNeeded)
+        if (players[0].getWins() >= winsNeeded|| players[1].getWins()>=winsNeeded)
             isOver = true;
         else {
             grid.clear();
