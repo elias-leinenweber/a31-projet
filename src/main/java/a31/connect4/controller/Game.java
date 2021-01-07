@@ -76,6 +76,7 @@ public class Game extends Subject {
         if (players[0].getWins() >= winsNeeded || players[1].getWins() >= winsNeeded)
             isOver = true;
         else {
+            players[0].switchColor(players[1]);
             grid.clear();
             turn = 0;
         }
