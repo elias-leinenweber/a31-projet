@@ -42,7 +42,7 @@ public class Grid {
 
         /* ...jusqu'à trouver une case vide. */
         while (!isColumnFull && grid[row][column] != Checker.NONE)
-            if (row == height)
+            if (row == height - 1)
                 isColumnFull = true;
             else
                 ++row;
