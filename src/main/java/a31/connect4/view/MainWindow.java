@@ -29,6 +29,7 @@ public class MainWindow extends JFrame implements Observer {
 
     public MainWindow() {
         super("Puissance 4");
+        setIconImage(new ImageIcon(getClass().getResource("/Icon.png")).getImage());
         initLookAndFeel();
 
         initMenuBar();
