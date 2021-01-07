@@ -13,7 +13,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Arrays;
 import java.util.stream.IntStream;
-import javax.swing.*;
 
 public class MainWindow extends JFrame implements Observer {
     private static final ImageIcon BOARD    = new ImageIcon(MainWindow.class.getResource("/Board.png"));
@@ -76,12 +75,12 @@ public class MainWindow extends JFrame implements Observer {
         settingsItem.addActionListener(e -> new SettingsWindow());
         exitItem.addActionListener(e -> System.exit(0));
 
-        /* TODO Traduire le tutoriel en français. */
-        tutorialItem.addActionListener(e -> JOptionPane.showMessageDialog(null,
-            "Click on the buttons or press 1-" + Rules.COLUMNS + "on your " +
-            "keyboard to insert a new checker.\nTo win you must place " +
-            Rules.IN_A_ROW + " checkers in an row, horizontally, vertically " +
-            "or diagonally.", "How to Play", JOptionPane.INFORMATION_MESSAGE));
+        tutorialItem.addActionListener(e -> JOptionPane.showMessageDialog(this,
+            "Appuyez sur les boutons ou bien sur les touches 1-" +
+            Rules.COLUMNS + " sur votre clavier pour insérer un nouveau jeton.\n" +
+            "Pour gagner vous devez aligner " + Rules.IN_A_ROW + " jetons d'affilée, " +
+            "horizontalement, verticalement ou diagonalement.", "Comment jouer ?",
+            JOptionPane.INFORMATION_MESSAGE));
 
         gameMenu.add(newGameItem);
         gameMenu.add(settingsItem);
