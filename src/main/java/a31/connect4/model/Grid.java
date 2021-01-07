@@ -102,8 +102,8 @@ public class Grid {
     }
 
     public boolean isOverflow() {
-        for (int i = 0; i < grid[0].length; ++i)
-            if (grid[0][i] == Checker.NONE)
+        for (int i = 0; i < grid[height - 1].length; ++i)
+            if (grid[height - 1][i] == Checker.NONE)
                 return false;
         return true;
     }

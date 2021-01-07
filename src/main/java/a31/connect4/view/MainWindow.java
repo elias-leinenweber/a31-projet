@@ -13,13 +13,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Arrays;
 import java.util.stream.IntStream;
-import javax.swing.*;
 
 public class MainWindow extends JFrame implements Observer {
-    private static final ImageIcon BOARD    = new ImageIcon(MainWindow.class.getResource("/Board.png"));
-    private static final ImageIcon RED      = new ImageIcon(MainWindow.class.getResource("/Red.png"));
-    private static final ImageIcon YELLOW   = new ImageIcon(MainWindow.class.getResource("/Yellow.png"));
-    private static final int DEFAULT_WIDTH  = 570;
+
+    private static final ImageIcon BOARD = new ImageIcon(MainWindow.class.getResource(String.format("/Board%dx%d.png", Rules.COLUMNS, Rules.ROWS)));
+    private static final ImageIcon RED = new ImageIcon(MainWindow.class.getResource("/Red.png"));
+    private static final ImageIcon YELLOW = new ImageIcon(MainWindow.class.getResource("/Yellow.png"));
+
+    private static final int DEFAULT_WIDTH = Rules.COLUMNS * 76 + 38;
     private static final int DEFAULT_HEIGHT = 500;
 
     private Game game;
@@ -76,12 +77,12 @@ public class MainWindow extends JFrame implements Observer {
         settingsItem.addActionListener(e -> new SettingsWindow());
         exitItem.addActionListener(e -> System.exit(0));
 
-        /* TODO Traduire le tutoriel en français. */
-        tutorialItem.addActionListener(e -> JOptionPane.showMessageDialog(null,
-            "Click on the buttons or press 1-" + Rules.COLUMNS + "on your " +
-            "keyboard to insert a new checker.\nTo win you must place " +
-            Rules.IN_A_ROW + " checkers in an row, horizontally, vertically " +
-            "or diagonally.", "How to Play", JOptionPane.INFORMATION_MESSAGE));
+        tutorialItem.addActionListener(e -> JOptionPane.showMessageDialog(this,
+            "Appuyez sur les boutons ou bien sur les touches 1-" +
+            Rules.COLUMNS + " sur votre clavier pour insérer un nouveau jeton.\n" +
+            "Pour gagner vous devez aligner " + Rules.IN_A_ROW + " jetons d'affilée, " +
+            "horizontalement, verticalement ou diagonalement.", "Comment jouer ?",
+            JOptionPane.INFORMATION_MESSAGE));
 
         gameMenu.add(newGameItem);
         gameMenu.add(settingsItem);
@@ -133,7 +134,7 @@ public class MainWindow extends JFrame implements Observer {
 
     private void newGame() {
         String player1, player2;
-        int winsNeeded;
+        Integer winsNeeded;
 
         do {
             player1 = (String)promptUserInput("Veuillez entrer le nom du joueur 1 :",
@@ -143,9 +144,11 @@ public class MainWindow extends JFrame implements Observer {
             player2 = (String)promptUserInput("Veuillez entrer le nom du joueur 2 :",
                                               "Nom du joueur 2", null);
         } while (player2 == null || player2.length() < 1);
-        winsNeeded = (Integer)promptUserInput(
-                "Veuillez entrer le nombre de manches nécessaires pour gagner :",
-                "Nombre de manches", IntStream.range(1, 10).boxed().toArray(Integer[]::new));
+        do {
+            winsNeeded = (Integer)promptUserInput(
+                    "Veuillez entrer le nombre de manches nécessaires pour gagner :",
+                    "Nombre de manches", IntStream.range(1, 11).boxed().toArray(Integer[]::new));
+        } while (winsNeeded == null);
 
         newGame(player1, player2, winsNeeded);
     }
@@ -178,20 +181,21 @@ public class MainWindow extends JFrame implements Observer {
             }
 
             /* Écouteur de touches (raccourcis clavier pour les boutons) */
-            addKeyListener(new KeyListener() {
-                @Override
-                public void keyTyped(KeyEvent e) {}
+            if (getKeyListeners().length == 0)
+                addKeyListener(new KeyListener() {
+                    @Override
+                    public void keyTyped(KeyEvent e) {}
 
-                @Override
-                public void keyPressed(KeyEvent e) {
-                    char keyChar = e.getKeyChar();
-                    if (Character.isDigit(keyChar))
-                        makeMove(Character.digit(keyChar, 10) - 1);
-                }
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        char keyChar = e.getKeyChar();
+                        if (Character.isDigit(keyChar))
+                            makeMove(Character.digit(keyChar, 10) - 1);
+                    }
 
-                @Override
-                public void keyReleased(KeyEvent e) {}
-            });
+                    @Override
+                    public void keyReleased(KeyEvent e) {}
+                });
         } else {
             for (JButton button : buttons) {
                 button.setEnabled(false);
@@ -204,8 +208,7 @@ public class MainWindow extends JFrame implements Observer {
     }
 
     private void makeMove(int col) {
-        if (col < Rules.COLUMNS && !game.getGrid().isOverflow())
-            game.play(game.getCurrentPlayer(), col);
+        game.play(game.getCurrentPlayer(), col);
     }
 
     @Override
@@ -228,10 +231,9 @@ public class MainWindow extends JFrame implements Observer {
 
         if (game.isOver()) {
             Player winner = game.getWinner();
-            int choice = JOptionPane.showConfirmDialog(null, (winner != null) ?
-                            (winner.getName() + " wins! Start a new game?") :
-                            "It's a draw! Start a new game?",
-                            "Game Over", JOptionPane.YES_NO_OPTION);
+            int choice = JOptionPane.showConfirmDialog(null,
+                    winner.getName() + " a gagné ! Faire une revanche ?",
+                    "Partie terminée", JOptionPane.YES_NO_OPTION);
 
             setAllButtonsEnabled(false);
             Arrays.stream(getKeyListeners()).forEach(this::removeKeyListener);

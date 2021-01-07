@@ -17,7 +17,6 @@ public class Game extends Subject {
     private final Grid grid;
     private final int winsNeeded;
     private int currentPlayerIndex;
-    private int wins;
     private boolean isOver;
     private int turn;
 
@@ -39,7 +38,6 @@ public class Game extends Subject {
         grid = new Grid(Rules.ROWS, Rules.COLUMNS);
 
         this.winsNeeded = winsNeeded;
-        wins = 0;
         isOver = false;
         turn = 1;
 
@@ -79,15 +77,16 @@ public class Game extends Subject {
             else
                 players[1].winGame();
             nouvelleManche();
-        }
+        } else if (grid.isOverflow())
+            nouvelleManche();
     }
 
     private void nouvelleManche() {
-        if (players[0].getWins() >= winsNeeded|| players[1].getWins()>=winsNeeded)
+        if (players[0].getWins() >= winsNeeded || players[1].getWins() >= winsNeeded)
             isOver = true;
         else {
             grid.clear();
-            turn = 1;
+            turn = 0;
         }
     }
 
