@@ -179,20 +179,21 @@ public class MainWindow extends JFrame implements Observer {
             }
 
             /* Écouteur de touches (raccourcis clavier pour les boutons) */
-            addKeyListener(new KeyListener() {
-                @Override
-                public void keyTyped(KeyEvent e) {}
+            if (getKeyListeners().length == 0)
+                addKeyListener(new KeyListener() {
+                    @Override
+                    public void keyTyped(KeyEvent e) {}
 
-                @Override
-                public void keyPressed(KeyEvent e) {
-                    char keyChar = e.getKeyChar();
-                    if (Character.isDigit(keyChar))
-                        makeMove(Character.digit(keyChar, 10) - 1);
-                }
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        char keyChar = e.getKeyChar();
+                        if (Character.isDigit(keyChar))
+                            makeMove(Character.digit(keyChar, 10) - 1);
+                    }
 
-                @Override
-                public void keyReleased(KeyEvent e) {}
-            });
+                    @Override
+                    public void keyReleased(KeyEvent e) {}
+                });
         } else {
             for (JButton button : buttons) {
                 button.setEnabled(false);
@@ -229,10 +230,9 @@ public class MainWindow extends JFrame implements Observer {
 
         if (game.isOver()) {
             Player winner = game.getWinner();
-            int choice = JOptionPane.showConfirmDialog(null, (winner != null) ?
-                            (winner.getName() + " wins! Start a new game?") :
-                            "It's a draw! Start a new game?",
-                            "Game Over", JOptionPane.YES_NO_OPTION);
+            int choice = JOptionPane.showConfirmDialog(null,
+                    winner.getName() + " a gagné ! Faire une revanche ?",
+                    "Partie terminée", JOptionPane.YES_NO_OPTION);
 
             setAllButtonsEnabled(false);
             Arrays.stream(getKeyListeners()).forEach(this::removeKeyListener);
