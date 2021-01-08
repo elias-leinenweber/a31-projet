@@ -1,6 +1,8 @@
 Puissance 4
 ===========
 
+![Puissance 4](img/puissance-4.png)
+
 Instructions
 ------------
 
@@ -12,29 +14,29 @@ Instructions
 
 (La version 8 du JRE ou supérieure est recommandée.)
 
-Rapport
--------
+### Mode d'emploi
 
-### Choix de conception
+Les règles du jeu sont rappelées dans la fenêtre `Tutoriel` (menu `?`).
 
-Notre projet suit l'architecture des patrons GRASP. En effet, on y retrouve
-l'architecture MVC comportant :
-- `model` avec les classes `Rules`, `Player`, `Grid` et `Checker`
-- `view` avec les classes `Connect4Window`, `MainWindow`, `RessourceLoader` et
-  `SettingsWindow`
-- `controller` avec la classe `Game`
+![Tutoriel](img/tutoriel.png)
 
-### Variantes
+Pour démarrer une nouvelle partie, `Partie > Nouvelle partie` puis suivre les
+instructions.
 
-#### 5-in-a-row
+![Nouvelle partie](img/nouvelle-partie.png)
 
-Nous avons décidé de mettre en place cette variante à l'aide d'une nouvelle
-fonction dans `Rules` permettant la modification du nombre de colonnes de la
-grille et du nombre de jetons alignés nécessaires. Le chargement d'une nouvelle
-image contenant une grille de 9 par 6 est également nécessaire.
+Pour modifier la variante de Puissance 4, aller dans `Partie > Options`.
 
-#### Autres variantes
+![Options](img/options.png)
 
-Nous n'avons malheureusement pas pu coder les variantes Pop 10 et Power par
-faute de temps. Cependant leur conception est disponible dans leur diagramme de
-classe de conception.
+La barre de statut en bas de la fenêtre principale indique le numéro du tour en
+cours, à quel joueur est le tour et le nombre de manches remportées par chaque
+joueur.
+
+![Barre de statut](img/barre-statut.png)
+
+Quand une partie est terminée, une fenêtre s'affiche offrant la possibilité de
+jouer la revanche ; si oui, une nouvelle partie commence avec les mêmes
+règles, joueurs et nombre de manches nécessaires pour gagner.
+
+![Partie terminée](img/partie-terminee.png)
