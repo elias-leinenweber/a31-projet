@@ -5,9 +5,9 @@ import fr.unistra.iutrs.a31.connect4.model.Rules;
 import javax.swing.*;
 import java.awt.*;
 
-public class SettingsWindow extends Connect4Window {
+public class SettingsWindow extends JDialog {
     public SettingsWindow(JFrame caller) {
-        super("Options");
+        super(caller, "Options", true);
 
         JButton btnFourInARow = new JButton("Original Connect 4");
         btnFourInARow.addActionListener(e -> {

@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.stream.IntStream;
 
-public class MainWindow extends Connect4Window implements Observer {
+public class MainWindow extends JFrame implements Observer {
     private Game game;
     private final JButton[] buttons;
     private final JLabel[][] grid;
@@ -21,6 +21,7 @@ public class MainWindow extends Connect4Window implements Observer {
 
     public MainWindow() {
         super("Puissance 4");
+        setIconImage(ResourceLoader.ICON);
 
         initMenuBar();
 

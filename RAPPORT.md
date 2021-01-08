@@ -6,9 +6,8 @@ Choix de conception
 
 Notre projet suit l'architecture MVC, ainsi que les règles de conception GRASP.
 On retrouve en effet les packages suivant :
-- `model` avec les classes `Rules`, `Player`, `Grid` et `Checker`
-- `view` avec les classes `Connect4Window`, `MainWindow`, `RessourceLoader` et
-  `SettingsWindow`
+- `model` avec les classes `Checker`, `Grid`, `Player`, `Rules`
+- `view` avec les classes `MainWindow`, `RessourceLoader` et `SettingsWindow`
 - `controller` avec la classe `Game`
 
 Variantes
