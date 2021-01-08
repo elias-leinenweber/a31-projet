@@ -8,7 +8,7 @@ Instructions
 
 ### Installation
 
-1. Télécharger l'archive `connect4.jar`.
+1. Télécharger l'archive [connect4.jar](https://git.unistra.fr/s3/a31-projet/uploads/fc1b7ebf6fb5cb142c9bc4adc410586f/connect4.jar).
 2. Dans une fenêtre de terminal, entrer la commande `java -jar connect4.jar`
    dans le répertoire où l'archive JAR est située.
 
