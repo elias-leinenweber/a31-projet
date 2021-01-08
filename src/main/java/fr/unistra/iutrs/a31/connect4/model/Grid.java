@@ -33,6 +33,14 @@ public class Grid {
         winningColor = Checker.NONE;
 
         clear();
+    }
+
+    /**
+     * Vide la grille.
+     */
+    public void clear() {
+        for (Checker[] row : grid)
+            Arrays.fill(row, Checker.NONE);
 
         /* Si on est en 5-in-a-Row, on ajoute les "sliders". */
         if (Rules.getColumns() == 9) {
@@ -43,14 +51,6 @@ public class Grid {
                 grid[i][8] = color;
             }
         }
-    }
-
-    /**
-     * Vide la grille.
-     */
-    public void clear() {
-        for (Checker[] row : grid)
-            Arrays.fill(row, Checker.NONE);
     }
 
     /**

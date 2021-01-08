@@ -74,11 +74,11 @@ public class MainWindow extends JFrame implements Observer {
         settingsItem.addActionListener(e -> new SettingsWindow(this));
         exitItem.addActionListener(e -> System.exit(0));
         tutorialItem.addActionListener(e -> JOptionPane.showMessageDialog(this,
-            "Appuyez sur les boutons ou bien sur les touches 1-" +
-            Rules.getColumns() + " sur votre clavier pour insérer un nouveau jeton.\n" +
-            "Pour gagner vous devez aligner " + Rules.getInARow() + " jetons d'affilée, " +
-            "horizontalement, verticalement ou diagonalement.", "Comment jouer ?",
-            JOptionPane.INFORMATION_MESSAGE));
+            "Appuyez sur les boutons ou bien sur les touches " + (Rules.getInARow() == 4 ? "1-" +
+            Rules.getColumns() : "2-" + (Rules.getColumns() - 1)) + " sur votre clavier pour " +
+            "insérer un nouveau jeton.\nPour gagner vous devez aligner " + Rules.getInARow() +
+            " jetons d'affilée, horizontalement, verticalement ou diagonalement.",
+            "Comment jouer ?", JOptionPane.INFORMATION_MESSAGE));
 
         gameMenu.add(newGameItem);
         gameMenu.add(settingsItem);
@@ -168,7 +168,17 @@ public class MainWindow extends JFrame implements Observer {
 
     private void setAllButtonsEnabled(boolean b) {
         if (b) {
-            for (int i = 0; i < buttons.length; ++i) {
+            int begin, end;
+
+            if (Rules.getInARow() == 5) {
+                begin = 1;
+                end = buttons.length - 1;
+            } else {
+                begin = 0;
+                end = buttons.length;
+            }
+
+            for (int i = begin; i < end; ++i) {
                 JButton button = buttons[i];
 
                 button.setEnabled(true);
