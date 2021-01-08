@@ -33,6 +33,16 @@ public class Grid {
         winningColor = Checker.NONE;
 
         clear();
+
+        /* Si on est en 5-in-a-Row, on ajoute les "sliders". */
+        if (Rules.getColumns() == 9) {
+            Checker color = Checker.YELLOW;
+            for (int i = 0; i < Rules.getRows(); ++i) {
+                grid[i][0] = color;
+                color = color == Checker.YELLOW ? Checker.RED : Checker.YELLOW;
+                grid[i][8] = color;
+            }
+        }
     }
 
     /**
