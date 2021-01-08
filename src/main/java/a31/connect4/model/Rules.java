@@ -5,8 +5,6 @@ public final class Rules {
     public static int ROWS = 6;
     public static int IN_A_ROW = 4;
 
-    /**
-     * Rend la classe non instantiable.
-     */
+    /** Rend la classe non instantiable. */
     private Rules() {}
 }

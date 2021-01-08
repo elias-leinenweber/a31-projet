@@ -132,16 +132,20 @@ public class MainWindow extends JFrame implements Observer {
         do {
             player1 = (String)promptUserInput("Veuillez entrer le nom du joueur 1 :",
                                               "Nom du joueur 1", null);
-        } while (player1 == null || player1.length() < 1);
+            if (player1 == null)
+                return;
+        } while (player1.length() < 1);
         do {
             player2 = (String)promptUserInput("Veuillez entrer le nom du joueur 2 :",
                                               "Nom du joueur 2", null);
-        } while (player2 == null || player2.length() < 1);
-        do {
-            winsNeeded = (Integer)promptUserInput(
+            if (player2 == null)
+                return;
+        } while (player2.length() < 1);
+        winsNeeded = (Integer)promptUserInput(
                     "Veuillez entrer le nombre de manches nécessaires pour gagner :",
                     "Nombre de manches", IntStream.range(1, 11).boxed().toArray(Integer[]::new));
-        } while (winsNeeded == null);
+        if (winsNeeded == null)
+            return;
 
         newGame(player1, player2, winsNeeded);
     }
@@ -217,9 +221,15 @@ public class MainWindow extends JFrame implements Observer {
         for (int i = 0; i < Rules.ROWS; ++i)
             for (int j = 0; j < Rules.COLUMNS; ++j)
                 switch (checkers[i][j]) {
-                    case RED -> grid[i][j].setIcon(ResourceLoader.RED);
-                    case YELLOW -> grid[i][j].setIcon(ResourceLoader.YELLOW);
-                    case NONE -> grid[i][j].setIcon(null);
+                    case RED:
+                        grid[i][j].setIcon(ResourceLoader.RED);
+                        break;
+                    case YELLOW:
+                        grid[i][j].setIcon(ResourceLoader.YELLOW);
+                        break;
+                    case NONE:
+                        grid[i][j].setIcon(null);
+                        break;
                 }
 
         if (game.isOver()) {
