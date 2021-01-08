@@ -14,8 +14,6 @@ final class ResourceLoader {
                                                           Rules.ROWS)));
     }
 
-    /**
-     * Rend la classe non instantiable.
-     */
+    /** Rend la classe non instantiable. */
     private ResourceLoader() {}
 }
