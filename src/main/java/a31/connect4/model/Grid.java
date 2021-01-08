@@ -8,7 +8,6 @@ import java.util.Arrays;
 public class Grid {
     private static final int UP = +1;
     private static final int DOWN = -1;
-    private static final int LEFT = -1;
     private static final int RIGHT = +1;
 
     private final Checker[][] grid;
@@ -16,26 +15,48 @@ public class Grid {
     private final int width;
     private Checker winningColor;
 
+    /**
+     * Crée une grille de Puissance 4.
+     *
+     * @param rows    le nombre de lignes
+     * @param columns le nombre de colonnes
+     * @throws IllegalArgumentException si les dimensions sont inférieures ou
+     *                                  égales à 0
+     */
     public Grid(int rows, int columns) {
         if (rows <= 0 || columns <= 0)
             throw new IllegalArgumentException("Dimensions invalides : " + rows + " par " + columns);
-        height = rows;
-        width = columns;
 
         grid = new Checker[rows][columns];
-        clear();
-
+        height = rows;
+        width = columns;
         winningColor = Checker.NONE;
+
+        clear();
     }
 
+    /**
+     * Vide la grille.
+     */
     public void clear() {
         for (Checker[] row : grid)
             Arrays.fill(row, Checker.NONE);
     }
 
+    /**
+     * Tente d'insérer un jeton dans une colonne.
+     *
+     * @param checker le jeton à insérer
+     * @param column  l'indice de la colonne
+     * @return la ligne dans laquelle le jeton a été inséré, si la colonne n'est
+     *         pas remplie ; -1 sinon
+     * @throws IllegalArgumentException si on tente d'insérer un jeton "vide" ou
+     *                                  que l'indice de la colonne est invalide
+     */
     public int drop(Checker checker, int column) {
         if (checker == Checker.NONE || column < 0 || column >= width)
             throw new IllegalArgumentException();
+
         /* On parcourt la colonne en partant du bas... */
         int row = 0;
         boolean isColumnFull = false;
@@ -50,6 +71,7 @@ public class Grid {
         /* On remplit la case vide trouvée. */
         if (!isColumnFull)
             grid[row][column] = checker;
+
         return isColumnFull ? -1 : row;
     }
 
@@ -63,10 +85,10 @@ public class Grid {
         for (int row = 0; row < height; ++row)
             for (int column = 0; column < width; ++column)
                 if (grid[row][column] == playerColor &&
-                    (count(row, column, -1, +1) >= Rules.IN_A_ROW ||
-                     count(row, column,  0, +1) >= Rules.IN_A_ROW ||
-                     count(row, column, +1, +1) >= Rules.IN_A_ROW ||
-                     count(row, column, +1,  0) >= Rules.IN_A_ROW)) {
+                    (count(row, column, DOWN, RIGHT) >= Rules.IN_A_ROW ||
+                     count(row, column, 0, RIGHT) >= Rules.IN_A_ROW ||
+                     count(row, column, UP, RIGHT) >= Rules.IN_A_ROW ||
+                     count(row, column, UP, 0) >= Rules.IN_A_ROW)) {
                     winningColor = playerColor;
                     res = true;
                     break;
@@ -86,19 +108,8 @@ public class Grid {
             row += rowDirection;
             column += columnDirection;
         }
+
         return counter;
-    }
-
-    public Checker getWinningColor() {
-        return winningColor;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
     public boolean isOverflow() {
@@ -108,7 +119,15 @@ public class Grid {
         return true;
     }
 
-    public Checker[][] getGrid() {
+    public Checker[][] getCheckers() {
         return grid;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public Checker getWinningColor() {
+        return winningColor;
     }
 }

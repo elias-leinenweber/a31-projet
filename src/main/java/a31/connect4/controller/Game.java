@@ -12,13 +12,12 @@ import static java.util.Objects.requireNonNull;
  * La classe "contrôleur" du jeu.
  */
 public class Game extends Subject {
-
     private final Player[] players;
     private final Grid grid;
     private final int winsNeeded;
     private int currentPlayerIndex;
-    private boolean isOver;
     private int turn;
+    private boolean isOver;
 
     /**
      * Crée une nouvelle partie.
@@ -30,76 +29,74 @@ public class Game extends Subject {
     public Game(String player1, String player2, int winsNeeded) {
         if (winsNeeded < 1)
             throw new IllegalArgumentException("Nombre de manches invalide : " + winsNeeded);
+
         players = new Player[2];
         players[0] = new Player(requireNonNull(player1), Checker.YELLOW);
         players[1] = new Player(requireNonNull(player2), Checker.RED);
-        currentPlayerIndex = 0;
 
         grid = new Grid(Rules.ROWS, Rules.COLUMNS);
-
         this.winsNeeded = winsNeeded;
-        isOver = false;
+        currentPlayerIndex = 0;
         turn = 1;
+        isOver = false;
 
         notifyObservers();
     }
 
     /**
-     * Tente de retourner un jeton dans une colonne
-     * retourne le numéro de la colonne
-     *  si la colonne est pleine, retourne -1
+     * Tente de placer un jeton dans une colonne.
      *
      * @param player le joueur
-     * @param column le numéro de la colonne
-     * @return row la ligne où placer le jeton
+     * @param column l'indice de la colonne
      */
-    public int play(Player player, int column) {
-        int row = -1;
+    public void play(Player player, int column) {
         if (player == players[currentPlayerIndex] && checkColumn(column)) {
-            if ((row = grid.drop(player.getColor(), column)) != -1) {
-                verifierGagnant();
+            if (grid.drop(player.getColor(), column) != -1) {
+                checkWinner();
                 currentPlayerIndex = (currentPlayerIndex + 1) % 2;
                 ++turn;
                 notifyObservers();
             }
         }
-        return row;
     }
 
     private boolean checkColumn(int column) {
         return column >= 0 && column < grid.getWidth();
     }
 
-    private void verifierGagnant() {
-        if (grid.hasWinningColor()) {
-            if (players[0].getColor() == grid.getWinningColor())
-                players[0].winGame();
-            else
-                players[1].winGame();
-            nouvelleManche();
-        } else if (grid.isOverflow())
-            nouvelleManche();
+    private void checkWinner() {
+        boolean gridHasWinningColor = grid.hasWinningColor();
+        if (gridHasWinningColor)
+            (players[0].getColor() == grid.getWinningColor() ? players[0] : players[1]).winGame();
+        if (gridHasWinningColor || grid.isOverflow())
+            newRound();
     }
 
-    private void nouvelleManche() {
+    private void newRound() {
         if (players[0].getWins() >= winsNeeded || players[1].getWins() >= winsNeeded)
             isOver = true;
         else {
+            players[0].switchColor(players[1]);
             grid.clear();
             turn = 0;
         }
     }
 
+    /**
+     * Renvoie le gagnant de la partie.
+     *
+     * @return le gagnant de la partie
+     * @throws IllegalStateException si la partie n'est pas terminée
+     */
     public Player getWinner() {
-        /* Match nul. */
-        Player winner = null;
-        int diff = players[0].getWins() - players[1].getWins();
+        if (!isOver)
+            throw new IllegalStateException("Il n'y pas de gagnant tant que la partie n'est pas terminée !");
 
-        if (diff > 0)
-            winner = players[0];
-        else if (diff < 0)
-            winner = players[1];
-        return winner;
+        /*
+         * À partir de cet endroit, il est impossible que les deux joueurs aient
+         * le même nombre de points.
+         */
+        return players[0].getWins() > players[1].getWins() ? players[0] : players[1];
     }
 
     public Player[] getPlayers() {
@@ -110,19 +107,19 @@ public class Game extends Subject {
         return grid;
     }
 
-    public boolean isOver() {
-        return isOver;
-    }
-
-    public int getTurn() {
-        return turn;
+    public int getWinsNeeded() {
+        return winsNeeded;
     }
 
     public Player getCurrentPlayer() {
         return players[currentPlayerIndex];
     }
 
-    public int getWinsNeeded() {
-        return winsNeeded;
+    public int getTurn() {
+        return turn;
+    }
+
+    public boolean isOver() {
+        return isOver;
     }
 }
