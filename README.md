@@ -16,11 +16,13 @@ Rapport
 -------
 
 ### Choix de conception
-Notre projet suit l'architecture des patrons GRASP. En effet, on y retrouve l'architecture MVC comportant :
-- model avec les classes `Rules`, `Player`, `Grid` et `Checker`
-- view avec les classes `Connect4Window`, `MainWindow`, `RessourceLoader` et `SettingsWindow`
-- controller avec la classe `Game`
 
+Notre projet suit l'architecture des patrons GRASP. En effet, on y retrouve
+l'architecture MVC comportant :
+- `model` avec les classes `Rules`, `Player`, `Grid` et `Checker`
+- `view` avec les classes `Connect4Window`, `MainWindow`, `RessourceLoader` et
+  `SettingsWindow`
+- `controller` avec la classe `Game`
 
 ### Variantes
 
@@ -32,4 +34,7 @@ grille et du nombre de jetons alignés nécessaires. Le chargement d'une nouvell
 image contenant une grille de 9 par 6 est également nécessaire.
 
 #### Autres variantes
-Nous n'avons malheureusement pas pu coder les variantes Pop 10 et Power par faute de temps. Cependant leur conception est disponible dans leur  diagramme de classe de conception.
+
+Nous n'avons malheureusement pas pu coder les variantes Pop 10 et Power par
+faute de temps. Cependant leur conception est disponible dans leur diagramme de
+classe de conception.

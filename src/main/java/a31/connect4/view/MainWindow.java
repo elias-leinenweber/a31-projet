@@ -50,22 +50,28 @@ public class MainWindow extends Connect4Window implements Observer {
     }
 
     private void initMenuBar() {
-        JMenuBar menuBar = new JMenuBar();
-
         JMenu gameMenu = new JMenu("Partie");
+        gameMenu.setMnemonic('P');
+
         JMenuItem newGameItem = new JMenuItem("Nouvelle partie");
+        newGameItem.setMnemonic('N');
+
         JMenuItem settingsItem = new JMenuItem("Options");
+        settingsItem.setMnemonic('O');
+
         JMenuItem exitItem = new JMenuItem("Quitter");
+        exitItem.setMnemonic('Q');
 
         JMenu helpMenu = new JMenu("?");
         helpMenu.setMnemonic('?');
+
         JMenuItem tutorialItem = new JMenuItem("Tutoriel");
+        tutorialItem.setMnemonic('T');
 
         /* Écouteurs d'événements. */
         newGameItem.addActionListener(e -> newGame());
         settingsItem.addActionListener(e -> new SettingsWindow(this));
         exitItem.addActionListener(e -> System.exit(0));
-
         tutorialItem.addActionListener(e -> JOptionPane.showMessageDialog(this,
             "Appuyez sur les boutons ou bien sur les touches 1-" +
             Rules.getColumns() + " sur votre clavier pour insérer un nouveau jeton.\n" +
@@ -76,12 +82,11 @@ public class MainWindow extends Connect4Window implements Observer {
         gameMenu.add(newGameItem);
         gameMenu.add(settingsItem);
         gameMenu.add(exitItem);
-
         helpMenu.add(tutorialItem);
 
+        JMenuBar menuBar = new JMenuBar();
         menuBar.add(gameMenu);
         menuBar.add(helpMenu);
-
         setJMenuBar(menuBar);
     }
 
