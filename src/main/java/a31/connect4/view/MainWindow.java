@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.stream.IntStream;
 
-public class MainWindow extends JFrame implements Observer {
+public class MainWindow extends Connect4Window implements Observer {
     private Game game;
     private final JButton[] buttons;
     private final JLabel[][] grid;
@@ -21,20 +21,18 @@ public class MainWindow extends JFrame implements Observer {
 
     public MainWindow() {
         super("Puissance 4");
-        setIconImage(new ImageIcon(getClass().getResource("/Icon.png")).getImage());
-        initLookAndFeel();
 
         initMenuBar();
 
-        buttons = new JButton[Rules.COLUMNS];
-        for (int i = 0; i < Rules.COLUMNS; ++i) {
+        buttons = new JButton[Rules.getColumns()];
+        for (int i = 0; i < Rules.getColumns(); ++i) {
             buttons[i] = new JButton(String.valueOf(i + 1));
             buttons[i].setEnabled(false);
             buttons[i].setFocusable(false);
         }
 
         /* Le panel principal */
-        grid = new JLabel[Rules.ROWS][Rules.COLUMNS];
+        grid = new JLabel[Rules.getRows()][Rules.getColumns()];
         initMainPanel();
 
         lblStatus = new JLabel("Tour n°");
@@ -65,13 +63,13 @@ public class MainWindow extends JFrame implements Observer {
 
         /* Écouteurs d'événements. */
         newGameItem.addActionListener(e -> newGame());
-        settingsItem.addActionListener(e -> new SettingsWindow());
+        settingsItem.addActionListener(e -> new SettingsWindow(this));
         exitItem.addActionListener(e -> System.exit(0));
 
         tutorialItem.addActionListener(e -> JOptionPane.showMessageDialog(this,
             "Appuyez sur les boutons ou bien sur les touches 1-" +
-            Rules.COLUMNS + " sur votre clavier pour insérer un nouveau jeton.\n" +
-            "Pour gagner vous devez aligner " + Rules.IN_A_ROW + " jetons d'affilée, " +
+            Rules.getColumns() + " sur votre clavier pour insérer un nouveau jeton.\n" +
+            "Pour gagner vous devez aligner " + Rules.getInARow() + " jetons d'affilée, " +
             "horizontalement, verticalement ou diagonalement.", "Comment jouer ?",
             JOptionPane.INFORMATION_MESSAGE));
 
@@ -90,7 +88,7 @@ public class MainWindow extends JFrame implements Observer {
     private void initMainPanel() {
         /* Le panel pour les boutons */
         JPanel pnlButtons = new JPanel();
-        pnlButtons.setLayout(new GridLayout(1, Rules.COLUMNS, 10, 0));
+        pnlButtons.setLayout(new GridLayout(1, Rules.getColumns(), 10, 0));
         pnlButtons.setBorder(BorderFactory.createEmptyBorder(2, 22, 2, 22));
         for (JButton button : buttons)
             pnlButtons.add(button);
@@ -102,14 +100,14 @@ public class MainWindow extends JFrame implements Observer {
 
         /* Le panel pour la grille */
         JLayeredPane lpnBoard = new JLayeredPane();
-        lpnBoard.setPreferredSize(new Dimension(Rules.COLUMNS * 76 + 38, Rules.ROWS * 76 + 38));
+        lpnBoard.setPreferredSize(new Dimension(Rules.getColumns() * 76 + 38, Rules.getRows() * 76 + 38));
         lpnBoard.add(lblBoard, 0, 1);
 
         /* Crée les labels correspondant à toutes les cases */
-        for (int i = 0; i < Rules.ROWS; ++i)
-            for (int j = 0; j < Rules.COLUMNS; ++j) {
+        for (int i = 0; i < Rules.getRows(); ++i)
+            for (int j = 0; j < Rules.getColumns(); ++j) {
                 grid[i][j] = new JLabel();
-                grid[i][j].setBounds(75 * j + 27, 75 * (Rules.ROWS - i - 1) + 27,
+                grid[i][j].setBounds(75 * j + 27, 75 * (Rules.getRows() - i - 1) + 27,
                                      ResourceLoader.RED.getIconWidth(),
                                      ResourceLoader.RED.getIconHeight());
                 lpnBoard.add(grid[i][j], 0, 0);
@@ -218,8 +216,8 @@ public class MainWindow extends JFrame implements Observer {
                 " - " + player2.getWins() + " " + player2.getName());
 
         Checker[][] checkers = game.getGrid().getCheckers();
-        for (int i = 0; i < Rules.ROWS; ++i)
-            for (int j = 0; j < Rules.COLUMNS; ++j)
+        for (int i = 0; i < Rules.getRows(); ++i)
+            for (int j = 0; j < Rules.getColumns(); ++j)
                 switch (checkers[i][j]) {
                     case RED:
                         grid[i][j].setIcon(ResourceLoader.RED);
@@ -242,25 +240,5 @@ public class MainWindow extends JFrame implements Observer {
                         game.getPlayers()[1].getName(),
                         game.getWinsNeeded());
         }
-    }
-
-    /**
-     * Initialise le "look-and-feel" pour le programme en cours à "GTK+", s'il
-     * est disponible ; sinon, utilise l'apparence système.
-     */
-    private static void initLookAndFeel() {
-        for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
-            if (info.getName().equals("GTK+")) {
-                try {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    return;
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                         UnsupportedLookAndFeelException ignored) {}
-                break;
-            }
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException ignored) {}
     }
 }

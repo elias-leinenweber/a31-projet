@@ -85,10 +85,10 @@ public class Grid {
         for (int row = 0; row < height; ++row)
             for (int column = 0; column < width; ++column)
                 if (grid[row][column] == playerColor &&
-                    (count(row, column, DOWN, RIGHT) >= Rules.IN_A_ROW ||
-                     count(row, column, 0, RIGHT) >= Rules.IN_A_ROW ||
-                     count(row, column, UP, RIGHT) >= Rules.IN_A_ROW ||
-                     count(row, column, UP, 0) >= Rules.IN_A_ROW)) {
+                    (count(row, column, DOWN, RIGHT) >= Rules.getInARow() ||
+                     count(row, column, 0, RIGHT) >= Rules.getInARow() ||
+                     count(row, column, UP, RIGHT) >= Rules.getInARow() ||
+                     count(row, column, UP, 0) >= Rules.getInARow())) {
                     winningColor = playerColor;
                     res = true;
                     break;

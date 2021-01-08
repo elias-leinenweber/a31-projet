@@ -1,30 +1,41 @@
 package a31.connect4.view;
 
-import javax.swing.*;
+import a31.connect4.model.Rules;
+
 import java.awt.*;
+import javax.swing.*;
 
-public class SettingsWindow extends JFrame {
-    public SettingsWindow() {
+public class SettingsWindow extends Connect4Window {
+    public SettingsWindow(JFrame caller) {
         super("Options");
-        JButton jb5Row=new JButton("5-in-a-row");
-        JButton jbHello=new JButton("Hello");
 
+        JButton btnFourInARow = new JButton("4-in-a-row");
+        btnFourInARow.addActionListener(e -> {
+            Rules.fourInARow();
+            caller.dispose();
+            new MainWindow();
+            dispose();
+        });
+
+        JButton btnFiveInARow = new JButton("5-in-a-row");
+        btnFiveInARow.addActionListener(e -> {
+            Rules.fiveInARow();
+            caller.dispose();
+            new MainWindow();
+            dispose();
+        });
 
         JPanel pnlButtons = new JPanel();
-        pnlButtons.setLayout(new GridLayout(2, 1, 10, 0));
-        pnlButtons.setBorder(BorderFactory.createEmptyBorder(10, 5, 20, 5));
-        pnlButtons.add(jb5Row);
-        pnlButtons.add(jbHello);
+        pnlButtons.setLayout(new GridLayout(2, 1, 0, 10));
+        pnlButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        pnlButtons.add(btnFourInARow);
+        pnlButtons.add(btnFiveInARow);
 
         add(pnlButtons);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        pack();
         setLocationRelativeTo(null);
         setResizable(false);
-        setSize(200,150);
         setVisible(true);
-
-        //jbConnect5.addActionListener(e->{});
-        jbHello.addActionListener(e->{});
-        }
     }
-
+}

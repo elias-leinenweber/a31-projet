@@ -34,7 +34,7 @@ public class Game extends Subject {
         players[0] = new Player(requireNonNull(player1), Checker.YELLOW);
         players[1] = new Player(requireNonNull(player2), Checker.RED);
 
-        grid = new Grid(Rules.ROWS, Rules.COLUMNS);
+        grid = new Grid(Rules.getRows(), Rules.getColumns());
         this.winsNeeded = winsNeeded;
         currentPlayerIndex = 0;
         turn = 1;
