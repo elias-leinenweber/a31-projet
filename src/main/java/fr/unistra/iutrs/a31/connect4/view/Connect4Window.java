@@ -1,4 +1,4 @@
-package a31.connect4.view;
+package fr.unistra.iutrs.a31.connect4.view;
 
 import javax.swing.*;
 

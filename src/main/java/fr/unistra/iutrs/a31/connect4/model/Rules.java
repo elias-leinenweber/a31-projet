@@ -1,4 +1,4 @@
-package a31.connect4.model;
+package fr.unistra.iutrs.a31.connect4.model;
 
 public final class Rules {
     private static int COLUMNS = 7;

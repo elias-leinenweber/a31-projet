@@ -1,6 +1,6 @@
-package a31.connect4.view;
+package fr.unistra.iutrs.a31.connect4.view;
 
-import a31.connect4.model.Rules;
+import fr.unistra.iutrs.a31.connect4.model.Rules;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,10 +1,10 @@
-package a31.connect4.view;
+package fr.unistra.iutrs.a31.connect4.view;
 
-import a31.connect4.controller.Game;
-import a31.connect4.model.Checker;
-import a31.connect4.model.Player;
-import a31.connect4.model.Rules;
-import a31.observer.Observer;
+import fr.unistra.iutrs.a31.connect4.controller.Game;
+import fr.unistra.iutrs.a31.connect4.model.Checker;
+import fr.unistra.iutrs.a31.connect4.model.Player;
+import fr.unistra.iutrs.a31.connect4.model.Rules;
+import fr.unistra.iutrs.a31.observer.Observer;
 
 import javax.swing.*;
 import java.awt.*;
