@@ -9,7 +9,7 @@ public class SettingsWindow extends Connect4Window {
     public SettingsWindow(JFrame caller) {
         super("Options");
 
-        JButton btnFourInARow = new JButton("4-in-a-row");
+        JButton btnFourInARow = new JButton("Original Connect 4");
         btnFourInARow.addActionListener(e -> {
             Rules.fourInARow();
             caller.dispose();
@@ -17,7 +17,7 @@ public class SettingsWindow extends Connect4Window {
             dispose();
         });
 
-        JButton btnFiveInARow = new JButton("5-in-a-row");
+        JButton btnFiveInARow = new JButton("5-in-a-Row");
         btnFiveInARow.addActionListener(e -> {
             Rules.fiveInARow();
             caller.dispose();

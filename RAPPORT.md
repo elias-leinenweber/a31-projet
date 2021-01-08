@@ -23,6 +23,6 @@ image contenant une grille de 9 par 6 est également nécessaire.
 
 ### Autres variantes
 
-Nous n'avons malheureusement pas pu coder les variantes `Pop 10` et `Power Up`,
-faute de temps. Cependant leur conception est disponible dans leur diagramme de
-classe de conception respectif.
+Nous n'avons malheureusement pas pu coder les variantes `Pop Out`, `Pop 10` et
+`Power Up`, faute de temps. Cependant leur conception est disponible dans leur
+diagramme de classe de conception respectif.
