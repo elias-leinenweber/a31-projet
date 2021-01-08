@@ -1,203 +1,316 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
-<svg width="70cm" height="55cm" viewBox="96 -15 1400 1086" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <g id="Arrière-plan">
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="98" y="6.7502" width="963" height="617.25"/>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="98" y="-13.2498" width="42.5" height="20"/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="100" y="1.7502">model</text>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="457" y="29" width="125.5" height="44"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="519.75" y="45">&lt;&lt;Enumeration&gt;&gt;</text>
-      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="519.75" y="64">Checker</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="457" y="73" width="125.5" height="52"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="460" y="87">+NONE</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="460" y1="92.6" x2="498.5" y2="92.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="460" y="103">+RED</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="460" y1="108.6" x2="490.8" y2="108.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="460" y="119">+YELLOW</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="460" y1="124.6" x2="513.9" y2="124.6"/>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="457" y="125" width="125.5" height="8"/>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="129" y="30" width="179.4" height="28"/>
-      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="218.7" y="49">Rules</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="129" y="58" width="179.4" height="52"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="72">-COLUMNS: Integer = 7</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="132" y1="77.6" x2="293.7" y2="77.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="88">-ROWS: Integer = 6</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="132" y1="93.6" x2="270.6" y2="93.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="104">-IN_A_ROW: Integer = 4</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="132" y1="109.6" x2="301.4" y2="109.6"/>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="129" y="110" width="179.4" height="100"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="124">+fourInARow()</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="132" y1="125.6" x2="232.1" y2="125.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="140">+fiveInARow()</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="132" y1="141.6" x2="232.1" y2="141.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="156">+getColumns(): Integer</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="132" y1="157.6" x2="301.4" y2="157.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="172">+getRows(): Integer</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="132" y1="173.6" x2="278.3" y2="173.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="188">+getInARow(): Integer</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="132" y1="189.6" x2="293.7" y2="189.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="204">-&lt;&lt;Create&gt;&gt; Rules()</text>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="135" y="296" width="479.7" height="28"/>
-      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="374.85" y="315">Grid</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="135" y="324" width="479.7" height="84"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="338">-UP: Integer = +1</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="138" y1="343.6" x2="268.9" y2="343.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="354">-DOWN: Integer = -1</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="138" y1="359.6" x2="284.3" y2="359.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="370">-RIGHT: Integer = +1</text>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="138" y1="375.6" x2="292" y2="375.6"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="386">-height: Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="402">-width: Integer</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="135" y="408" width="479.7" height="180"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="422">+&lt;&lt;Create&gt;&gt; Grid(rows:Integer,columns:Integer)</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="438">+clear()</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="454">+drop(checker:Checker,column:Integer): Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="470">+hasWinningColor(): Boolean</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="486">-hasWon(playerColor:Checker): Boolean</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="502">-count(startRow:Integer,startColumn:Integer,</text>
-      <text xml:space="preserve" font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="518">       rowDirection:Integer,columnDirection:Integer): Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="534">+isOverflow(): Boolean</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="550">+getCheckers(): Checker[*][*]</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="566">+getWidth(): Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="582">+getWinningColor(): Checker</text>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="692" y="32" width="356.5" height="28"/>
-      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="870.25" y="51">Player</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="692" y="60" width="356.5" height="52"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="74">-name: String</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="90">-color: Checker</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="106">-wins: Integer</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="692" y="112" width="356.5" height="100"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="126">+&lt;&lt;Create&gt;&gt; Player(name:String,color:Checker)</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="142">+switchColor(player:Player)</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="158">+winGame()</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="174">+getName(): String</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="190">+getColor(): Checker</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="206">+getWins(): Integer</text>
-    </g>
-    <g>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="665.823,122 629.747,122 629.747,51 586.972,51 "/>
-      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="690.995,122 676.995,126.8 662.995,122 676.995,117.2 "/>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="600.736,43 584.736,51 600.736,59 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="631.747" y="83.5"/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="658.995" y="119">1</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="602.5" y="48">-color</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="602.5" y="64">1</text>
-    </g>
-    <g>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="374.85,270.828 374.85,180.75 519.75,180.75 519.75,134.004 "/>
-      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="374.85,296 370.05,282 374.85,268 379.65,282 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="447.3" y="177.75"/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="385.85" y="292">1</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="523.75" y="146.004">-checkers</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="523.75" y="162.004">*</text>
-    </g>
-    <g>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="433.786" y1="295.167" x2="495.983" y2="140.214"/>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="495.912,153.813 497.231,137.102 486.631,150.088 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="466.133" y="210.579">{create}</text>
-    </g>
-    <g>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="303.599" y1="295.072" x2="265.757" y2="217.038"/>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="275.775,226.236 264.295,214.021 266.777,230.6 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="283.216" y="249.039">{use}</text>
-    </g>
-    <g>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="615.686" y1="330.187" x2="864.168" y2="214.824"/>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="854.802,224.684 867.209,213.412 850.591,215.614 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="756.398" y="273.58">{use}</text>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="332" y="684" width="509" height="386"/>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="332" y="664" width="81" height="20"/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="334" y="679">controller</text>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1101.95" y="195.343" width="394" height="345"/>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1101.95" y="175.343" width="65.6" height="20"/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1103.95" y="190.343">observer</text>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="411" y="729" width="371.9" height="28"/>
-      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="596.95" y="748">Game</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="411" y="757" width="371.9" height="68"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="771">-winsNeeded: Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="787">-currentPlayerIndex: Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="803">-turn: Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="819">-isOver: Boolean</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="411" y="825" width="371.9" height="212"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="839">+&lt;&lt;Create&gt;&gt; Game(player1:String,player2:String,</text>
-      <text xml:space="preserve" font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="855">                 winsNeeded:Integer)</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="871">+play(player:Player,column:Integer)</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="887">-checkColumn(column:Integer): Boolean</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="903">-checkWinner()</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="919">-newRound()</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="935">+getWinner(): Player</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="951">+getPlayers(): Player[*]</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="967">+getGrid(): Grid</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="983">+getWinsNeeded(): Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="999">+getCurrentPlayer(): Player</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="1015">+getTurn(): Integer</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="1031">+isOver(): Boolean</text>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1140.95" y="221.799" width="83.45" height="28"/>
-      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1182.67" y="240.799">Observer</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1140.95" y="249.799" width="83.45" height="8"/>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1140.95" y="257.799" width="83.45" height="20"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1143.95" y="271.799">+update()</text>
-    </g>
-    <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1243.95" y="360.799" width="225.6" height="28"/>
-      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1356.75" y="379.799">Subject</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1243.95" y="388.799" width="225.6" height="8"/>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1243.95" y="396.799" width="225.6" height="100"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="410.799">+Subject()</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="426.799">+register(o:Observer)</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="442.799">+unregister(o:Observer)</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="458.799">#notifyObservers()</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="474.799">#getObservers(): Observer[*]</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="490.799">#clearObservers()</text>
-    </g>
-    <g>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="1356.75,335.628 1356.75,331 1182.67,331 1182.67,282.271 "/>
-      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1356.75,360.799 1351.95,346.799 1356.75,332.799 1361.55,346.799 "/>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="1190.67,296.035 1182.67,280.035 1174.67,296.035 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1269.71" y="328">est observé</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1367.75" y="356.799">1</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1193.67" y="289.799">-observers</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1193.67" y="305.799">*</text>
-    </g>
-    <g>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="596.95,703.828 596.95,651.5 374.85,651.5 374.85,592.472 "/>
-      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="596.95,729 592.15,715 596.95,701 601.75,715 "/>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="382.85,606.236 374.85,590.236 366.85,606.236 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="485.9" y="648.5"/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="607.95" y="725">1</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="385.85" y="600">-grid</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="385.85" y="616">1</text>
-    </g>
-    <g>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="808.072,915 870.25,915 870.25,216.472 "/>
-      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="782.9,915 796.9,910.2 810.9,915 796.9,919.8 "/>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="878.25,230.236 870.25,214.236 862.25,230.236 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="826.575" y="912"/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="814.9" y="912">1</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="881.25" y="224">-players</text>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="881.25" y="240">2</text>
-    </g>
-    <g>
-      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="1356.75,515.035 1356.75,963 782.9,963 "/>
-      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1364.75,515.035 1356.75,499.035 1348.75,515.035 "/>
-      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1069.82" y="960">&lt;&lt;extends&gt;&gt;</text>
-    </g>
+<svg width="103cm" height="61cm" viewBox="-551 -15 2048 1202" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="98" y="6.7502" width="963" height="617.25"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="98" y="6.7502" width="963" height="617.25"/>
+    <rect style="fill: #ffffff" x="98" y="-13.2498" width="42.5" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="98" y="-13.2498" width="42.5" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="100" y="0.7502">model</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="457" y="29" width="125.5" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="457" y="29" width="125.5" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="519.75" y="44.2">&lt;&lt;Enumeration&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="519.75" y="65">Checker</text>
+    <rect style="fill: #ffffff" x="457" y="73" width="125.5" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="457" y="73" width="125.5" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="460" y="86.2">+NONE</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="460" y1="92.6" x2="498.5" y2="92.6"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="460" y="102.2">+RED</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="460" y1="108.6" x2="490.8" y2="108.6"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="460" y="118.2">+YELLOW</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="460" y1="124.6" x2="513.9" y2="124.6"/>
+    <rect style="fill: #ffffff" x="457" y="125" width="125.5" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="457" y="125" width="125.5" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="129" y="30" width="179.4" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="129" y="30" width="179.4" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="218.7" y="50">Rules</text>
+    <rect style="fill: #ffffff" x="129" y="58" width="179.4" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="129" y="58" width="179.4" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="71.2">-COLUMNS: Integer = 7</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="132" y1="77.6" x2="293.7" y2="77.6"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="87.2">-ROWS: Integer = 6</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="132" y1="93.6" x2="270.6" y2="93.6"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="103.2">-IN_A_ROW: Integer = 4</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="132" y1="109.6" x2="301.4" y2="109.6"/>
+    <rect style="fill: #ffffff" x="129" y="110" width="179.4" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="129" y="110" width="179.4" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="123.2">+fourInARow()</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="132" y1="124.8" x2="232.1" y2="124.8"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="139.2">+fiveInARow()</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="132" y1="140.8" x2="232.1" y2="140.8"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="155.2">+getColumns(): Integer</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="132" y1="156.8" x2="301.4" y2="156.8"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="171.2">+getRows(): Integer</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="132" y1="172.8" x2="278.3" y2="172.8"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="187.2">+getInARow(): Integer</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="132" y1="188.8" x2="293.7" y2="188.8"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="132" y="203.2">-&lt;&lt;Create&gt;&gt; Rules()</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="135" y="296" width="479.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="135" y="296" width="479.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="374.85" y="316">Grid</text>
+    <rect style="fill: #ffffff" x="135" y="324" width="479.7" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="135" y="324" width="479.7" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="337.2">-UP: Integer = +1</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="138" y1="343.6" x2="268.9" y2="343.6"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="353.2">-DOWN: Integer = -1</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="138" y1="359.6" x2="284.3" y2="359.6"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="369.2">-RIGHT: Integer = +1</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="138" y1="375.6" x2="292" y2="375.6"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="385.2">-height: Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="401.2">-width: Integer</text>
+    <rect style="fill: #ffffff" x="135" y="408" width="479.7" height="180"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="135" y="408" width="479.7" height="180"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="421.2">+&lt;&lt;Create&gt;&gt; Grid(rows:Integer,columns:Integer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="437.2">+clear()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="453.2">+drop(checker:Checker,column:Integer): Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="469.2">+hasWinningColor(): Boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="485.2">-hasWon(playerColor:Checker): Boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="501.2">-count(startRow:Integer,startColumn:Integer,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="517.2">       rowDirection:Integer,columnDirection:Integer): Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="533.2">+isOverflow(): Boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="549.2">+getCheckers(): Checker[*][*]</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="565.2">+getWidth(): Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="138" y="581.2">+getWinningColor(): Checker</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="692" y="32" width="356.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="692" y="32" width="356.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="870.25" y="52">Player</text>
+    <rect style="fill: #ffffff" x="692" y="60" width="356.5" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="692" y="60" width="356.5" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="73.2">-name: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="89.2">-color: Checker</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="105.2">-wins: Integer</text>
+    <rect style="fill: #ffffff" x="692" y="112" width="356.5" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="692" y="112" width="356.5" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="125.2">+&lt;&lt;Create&gt;&gt; Player(name:String,color:Checker)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="141.2">+switchColor(player:Player)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="157.2">+winGame()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="173.2">+getName(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="189.2">+getColor(): Checker</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="695" y="205.2">+getWins(): Integer</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="665.823,122 637.247,122 637.247,51 586.972,51 "/>
+    <polygon style="fill: #ffffff" points="690.995,122 676.995,126.8 662.995,122 676.995,117.2 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="690.995,122 676.995,126.8 662.995,122 676.995,117.2 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="600.736,43 584.736,51 600.736,59 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="639.247" y="82.5"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="658.995" y="118">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="602.5" y="47">-color</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="602.5" y="63">1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="374.85,270.828 374.85,180.75 519.75,180.75 519.75,134.004 "/>
+    <polygon style="fill: #ffffff" points="374.85,296 370.05,282 374.85,268 379.65,282 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="374.85,296 370.05,282 374.85,268 379.65,282 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="447.3" y="176.75"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="385.85" y="292">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="523.75" y="146.004">-checkers</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="523.75" y="162.004">*</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="433.786" y1="295.167" x2="495.983" y2="140.214"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="495.912,153.813 497.231,137.102 486.631,150.088 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="466.132" y="210.578">{create}</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="303.599" y1="295.072" x2="265.757" y2="217.038"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="275.775,226.236 264.295,214.021 266.777,230.6 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="283.216" y="249.04">{use}</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="615.686" y1="330.187" x2="864.168" y2="214.824"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="854.802,224.684 867.209,213.412 850.591,215.614 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="756.398" y="273.58">{use}</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="332" y="684" width="509" height="386"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="332" y="684" width="509" height="386"/>
+    <rect style="fill: #ffffff" x="332" y="664" width="81" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="332" y="664" width="81" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="334" y="678">controller</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1101.95" y="195.343" width="394" height="345"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1101.95" y="195.343" width="394" height="345"/>
+    <rect style="fill: #ffffff" x="1101.95" y="175.343" width="65.6" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1101.95" y="175.343" width="65.6" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1103.95" y="189.343">observer</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="411" y="729" width="371.9" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="411" y="729" width="371.9" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="596.95" y="749">Game</text>
+    <rect style="fill: #ffffff" x="411" y="757" width="371.9" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="411" y="757" width="371.9" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="770.2">-winsNeeded: Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="786.2">-currentPlayerIndex: Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="802.2">-turn: Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="818.2">-isOver: Boolean</text>
+    <rect style="fill: #ffffff" x="411" y="825" width="371.9" height="212"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="411" y="825" width="371.9" height="212"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="838.2">+&lt;&lt;Create&gt;&gt; Game(player1:String,player2:String,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="854.2">                 winsNeeded:Integer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="870.2">+play(player:Player,column:Integer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="886.2">-checkColumn(column:Integer): Boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="902.2">-checkWinner()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="918.2">-newRound()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="934.2">+getWinner(): Player</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="950.2">+getPlayers(): Player[*]</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="966.2">+getGrid(): Grid</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="982.2">+getWinsNeeded(): Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="998.2">+getCurrentPlayer(): Player</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="1014.2">+getTurn(): Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414" y="1030.2">+isOver(): Boolean</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1140.95" y="221.798" width="79.3" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1140.95" y="221.798" width="79.3" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1180.6" y="241.798">Observer</text>
+    <rect style="fill: #ffffff" x="1140.95" y="249.798" width="79.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1140.95" y="249.798" width="79.3" height="8"/>
+    <rect style="fill: #ffffff" x="1140.95" y="257.798" width="79.3" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1140.95" y="257.798" width="79.3" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1143.95" y="270.998">+update()</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1243.95" y="360.8" width="225.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1243.95" y="360.8" width="225.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1356.75" y="380.8">Subject</text>
+    <rect style="fill: #ffffff" x="1243.95" y="388.8" width="225.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1243.95" y="388.8" width="225.6" height="8"/>
+    <rect style="fill: #ffffff" x="1243.95" y="396.8" width="225.6" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1243.95" y="396.8" width="225.6" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="410">+Subject()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="426">+register(o:Observer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="442">+unregister(o:Observer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="458">#notifyObservers()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="474">#getObservers(): Observer[*]</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1246.95" y="490">#clearObservers()</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1356.75,335.628 1356.75,331 1182.67,331 1182.67,282.27 "/>
+    <polygon style="fill: #ffffff" points="1356.75,360.8 1351.95,346.8 1356.75,332.8 1361.55,346.8 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1356.75,360.8 1351.95,346.8 1356.75,332.8 1361.55,346.8 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1190.67,296.034 1182.67,280.034 1174.67,296.034 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1269.71" y="327">est observé</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1367.75" y="356.8">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1193.67" y="289.798">-observers</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1193.67" y="305.798">*</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="596.95,703.828 596.95,659 374.85,659 374.85,592.472 "/>
+    <polygon style="fill: #ffffff" points="596.95,729 592.15,715 596.95,701 601.75,715 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="596.95,729 592.15,715 596.95,701 601.75,715 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="382.85,606.236 374.85,590.236 366.85,606.236 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="485.9" y="655"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="607.95" y="725">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="385.85" y="600">-grid</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="385.85" y="616">1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="808.072,915 870.25,915 870.25,216.472 "/>
+    <polygon style="fill: #ffffff" points="782.9,915 796.9,910.2 810.9,915 796.9,919.8 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="782.9,915 796.9,910.2 810.9,915 796.9,919.8 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="878.25,230.236 870.25,214.236 862.25,230.236 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="826.575" y="911"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="814.9" y="911">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="881.25" y="224">-players</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="881.25" y="240">2</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1356.75,515.036 1356.75,963 782.9,963 "/>
+    <polygon style="fill: #ffffff" points="1364.75,515.036 1356.75,499.036 1348.75,515.036 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1364.75,515.036 1356.75,499.036 1348.75,515.036 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1069.82" y="959">&lt;&lt;extends&gt;&gt;</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-550" y="647.947" width="863" height="537.913"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-550" y="647.947" width="863" height="537.913"/>
+    <rect style="fill: #ffffff" x="-550" y="627.947" width="40" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-550" y="627.947" width="40" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-548" y="641.947">view</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-524" y="910.947" width="456.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-524" y="910.947" width="456.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-295.7" y="930.947">MainWindow</text>
+    <rect style="fill: #ffffff" x="-524" y="938.947" width="456.6" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-524" y="938.947" width="456.6" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="952.147">-game: Game</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="968.147">-buttons: JButton[*]</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="984.147">-grid: JLabel[*][*]</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1000.15">-lblStatus: JLabel</text>
+    <rect style="fill: #ffffff" x="-524" y="1006.95" width="456.6" height="148"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-524" y="1006.95" width="456.6" height="148"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1020.15">-initMenuBar()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1036.15">-initMainPanel()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1052.15">-newGame()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1068.15">-newGame(player1:String,player2:String,winsNeeded:Integer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1084.15">-promptUserInput(message:String,title:String,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1100.15">                 selectionValues:Integer[*]): Object</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1116.15">-setAllButtonsEnabled(b:Boolean)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1132.15">-makeMove(col:Integer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-521" y="1148.15">+update()</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="37" y="1000.95" width="248.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="37" y="1000.95" width="248.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="161.35" y="1020.95">ResourceLoader</text>
+    <rect style="fill: #ffffff" x="37" y="1028.95" width="248.7" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="37" y="1028.95" width="248.7" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="40" y="1042.15"> ICON: Image</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="40" y="1058.15"> RED: ImageIcon</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="40" y="1074.15"> YELLOW: ImageIcon</text>
+    <rect style="fill: #ffffff" x="37" y="1080.95" width="248.7" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="37" y="1080.95" width="248.7" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="40" y="1094.15">+getBoardImageIcon(): ImageIcon</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="81" y="852.947" width="142.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="81" y="852.947" width="142.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="152.05" y="872.947">SettingsWindow</text>
+    <rect style="fill: #ffffff" x="81" y="880.947" width="142.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="81" y="880.947" width="142.1" height="8"/>
+    <rect style="fill: #ffffff" x="81" y="888.947" width="142.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="81" y="888.947" width="142.1" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-88" y="665.947" width="151.65" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-88" y="665.947" width="151.65" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-12.175" y="685.947">Connect4Window</text>
+    <rect style="fill: #ffffff" x="-88" y="693.947" width="151.65" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-88" y="693.947" width="151.65" height="8"/>
+    <rect style="fill: #ffffff" x="-88" y="701.947" width="151.65" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-88" y="701.947" width="151.65" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="63.65,728.183 63.65,789.447 152.05,789.447 152.05,852.947 "/>
+    <polygon style="fill: #ffffff" points="71.65,728.183 63.65,712.183 55.65,728.183 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="71.65,728.183 63.65,712.183 55.65,728.183 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="107.85" y="785.447">&lt;&lt;extends&gt;&gt;</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-88,728.183 -88,818.447 -295.7,818.447 -295.7,910.947 "/>
+    <polygon style="fill: #ffffff" points="-80,728.183 -88,712.183 -96,728.183 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-80,728.183 -88,712.183 -96,728.183 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="-191.85" y="814.447">&lt;&lt;extends&gt;&gt;</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="37" y1="1000.95" x2="-7.52663" y2="717.534"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-0.624282,729.252 -8.04697,714.222 -10.5031,730.804 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="14.2171" y="851.93">{use}</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="-12.175" y1="665.947" x2="127.017" y2="216.405"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="128.052,229.966 128.008,213.203 118.5,227.008 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="58.4132" y="433.975">{use}</text>
   </g>
 </svg>

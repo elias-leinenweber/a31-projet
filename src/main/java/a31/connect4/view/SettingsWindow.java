@@ -2,8 +2,8 @@ package a31.connect4.view;
 
 import a31.connect4.model.Rules;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class SettingsWindow extends Connect4Window {
     public SettingsWindow(JFrame caller) {
